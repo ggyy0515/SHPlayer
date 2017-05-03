@@ -1,0 +1,6 @@
+
+target 'SHPlayerDemo' do
+pod 'Masonry'
+pod 'SDWebImage'
+end
+

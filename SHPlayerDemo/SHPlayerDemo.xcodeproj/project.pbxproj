@@ -13,6 +13,7 @@
 		6A2289881EB9B1B7009F8F0A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6A2289861EB9B1B7009F8F0A /* Main.storyboard */; };
 		6A22898A1EB9B1B7009F8F0A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6A2289891EB9B1B7009F8F0A /* Assets.xcassets */; };
 		6A22898D1EB9B1B7009F8F0A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6A22898B1EB9B1B7009F8F0A /* LaunchScreen.storyboard */; };
+		F09E41C8512BD0A4320F958A /* libPods-SHPlayerDemo.a in Frameworks */ = {isa = PBXBuildFile; fileRef = AB4EF1ECA39ED37A66A99DE1 /* libPods-SHPlayerDemo.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +27,9 @@
 		6A2289891EB9B1B7009F8F0A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		6A22898C1EB9B1B7009F8F0A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		6A22898E1EB9B1B7009F8F0A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		7B9419D7EC80E1D19779D71E /* Pods-SHPlayerDemo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SHPlayerDemo.release.xcconfig"; path = "Pods/Target Support Files/Pods-SHPlayerDemo/Pods-SHPlayerDemo.release.xcconfig"; sourceTree = "<group>"; };
+		81C8B53559F3CE37061A3199 /* Pods-SHPlayerDemo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SHPlayerDemo.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SHPlayerDemo/Pods-SHPlayerDemo.debug.xcconfig"; sourceTree = "<group>"; };
+		AB4EF1ECA39ED37A66A99DE1 /* libPods-SHPlayerDemo.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-SHPlayerDemo.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -33,18 +37,30 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F09E41C8512BD0A4320F958A /* libPods-SHPlayerDemo.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		097037433718B9A82F7E88E5 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				81C8B53559F3CE37061A3199 /* Pods-SHPlayerDemo.debug.xcconfig */,
+				7B9419D7EC80E1D19779D71E /* Pods-SHPlayerDemo.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 		6A2289711EB9B1B7009F8F0A = {
 			isa = PBXGroup;
 			children = (
 				6A2289A71EB9B3A5009F8F0A /* SHPlayer */,
 				6A22897C1EB9B1B7009F8F0A /* SHPlayerDemo */,
 				6A22897B1EB9B1B7009F8F0A /* Products */,
+				097037433718B9A82F7E88E5 /* Pods */,
+				A8BC77D48891E2D92517DD6B /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -88,6 +104,14 @@
 			path = ../SHPlayer;
 			sourceTree = "<group>";
 		};
+		A8BC77D48891E2D92517DD6B /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				AB4EF1ECA39ED37A66A99DE1 /* libPods-SHPlayerDemo.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -95,9 +119,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 6A2289911EB9B1B7009F8F0A /* Build configuration list for PBXNativeTarget "SHPlayerDemo" */;
 			buildPhases = (
+				C92C1ABC3B34171B3D1FD690 /* [CP] Check Pods Manifest.lock */,
 				6A2289761EB9B1B7009F8F0A /* Sources */,
 				6A2289771EB9B1B7009F8F0A /* Frameworks */,
 				6A2289781EB9B1B7009F8F0A /* Resources */,
+				E7CF4F86173BECAA8B93B204 /* [CP] Embed Pods Frameworks */,
+				B7BBED44747CD2EC6196F6F8 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -153,6 +180,54 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		B7BBED44747CD2EC6196F6F8 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-SHPlayerDemo/Pods-SHPlayerDemo-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		C92C1ABC3B34171B3D1FD690 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		E7CF4F86173BECAA8B93B204 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-SHPlayerDemo/Pods-SHPlayerDemo-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		6A2289761EB9B1B7009F8F0A /* Sources */ = {
@@ -281,6 +356,7 @@
 		};
 		6A2289921EB9B1B7009F8F0A /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 81C8B53559F3CE37061A3199 /* Pods-SHPlayerDemo.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = SHPlayerDemo/Info.plist;
@@ -293,6 +369,7 @@
 		};
 		6A2289931EB9B1B7009F8F0A /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 7B9419D7EC80E1D19779D71E /* Pods-SHPlayerDemo.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = SHPlayerDemo/Info.plist;
