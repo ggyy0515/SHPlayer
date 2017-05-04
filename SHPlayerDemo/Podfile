@@ -3,5 +3,6 @@ target 'SHPlayerDemo' do
     pod 'Masonry'
     pod 'SDWebImage'
     pod 'SHSCategory'
+    pod 'MBProgressHUD'
 end
 
