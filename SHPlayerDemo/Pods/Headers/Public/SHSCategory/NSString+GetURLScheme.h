@@ -1,0 +1,1 @@
+../../../SHSCategory/SHSCategory/NSString/NSString+GetURLScheme.h

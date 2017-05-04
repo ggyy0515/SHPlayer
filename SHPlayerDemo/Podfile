@@ -1,6 +1,7 @@
 
 target 'SHPlayerDemo' do
-pod 'Masonry'
-pod 'SDWebImage'
+    pod 'Masonry'
+    pod 'SDWebImage'
+    pod 'SHSCategory'
 end
 

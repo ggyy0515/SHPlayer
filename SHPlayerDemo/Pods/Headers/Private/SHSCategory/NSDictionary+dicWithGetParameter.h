@@ -1,0 +1,1 @@
+../../../SHSCategory/SHSCategory/NSDictionary/NSDictionary+dicWithGetParameter.h
