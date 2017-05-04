@@ -13,6 +13,19 @@
 		6A2289881EB9B1B7009F8F0A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6A2289861EB9B1B7009F8F0A /* Main.storyboard */; };
 		6A22898A1EB9B1B7009F8F0A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6A2289891EB9B1B7009F8F0A /* Assets.xcassets */; };
 		6A22898D1EB9B1B7009F8F0A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6A22898B1EB9B1B7009F8F0A /* LaunchScreen.storyboard */; };
+		6A2289C91EBABB07009F8F0A /* MobileVLCKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6A2289C81EBABB07009F8F0A /* MobileVLCKit.framework */; };
+		6A2289CB1EBABB2A009F8F0A /* libbz2.1.0.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 6A2289CA1EBABB2A009F8F0A /* libbz2.1.0.tbd */; };
+		6A2289CD1EBABB35009F8F0A /* libz.1.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 6A2289CC1EBABB35009F8F0A /* libz.1.tbd */; };
+		6A2289CF1EBABB44009F8F0A /* libc++.1.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 6A2289CE1EBABB44009F8F0A /* libc++.1.tbd */; };
+		6A2289D11EBABB57009F8F0A /* libiconv.2.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 6A2289D01EBABB57009F8F0A /* libiconv.2.tbd */; };
+		6A2289D31EBABB65009F8F0A /* libstdc++.6.0.9.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 6A2289D21EBABB65009F8F0A /* libstdc++.6.0.9.tbd */; };
+		6A2289D51EBABB7B009F8F0A /* MediaPlayer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6A2289D41EBABB7B009F8F0A /* MediaPlayer.framework */; };
+		6A2289D71EBABB86009F8F0A /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6A2289D61EBABB86009F8F0A /* AVFoundation.framework */; };
+		6A2289D91EBABB92009F8F0A /* CoreAudio.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6A2289D81EBABB92009F8F0A /* CoreAudio.framework */; };
+		6A2289DB1EBABB97009F8F0A /* CoreVideo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6A2289DA1EBABB97009F8F0A /* CoreVideo.framework */; };
+		6A2289DD1EBABB9F009F8F0A /* CoreMedia.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6A2289DC1EBABB9F009F8F0A /* CoreMedia.framework */; };
+		6A2289DF1EBABBAA009F8F0A /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6A2289DE1EBABBAA009F8F0A /* AudioToolbox.framework */; };
+		6A2289E11EBABBB0009F8F0A /* VideoToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6A2289E01EBABBB0009F8F0A /* VideoToolbox.framework */; };
 		F09E41C8512BD0A4320F958A /* libPods-SHPlayerDemo.a in Frameworks */ = {isa = PBXBuildFile; fileRef = AB4EF1ECA39ED37A66A99DE1 /* libPods-SHPlayerDemo.a */; };
 /* End PBXBuildFile section */
 
@@ -27,6 +40,19 @@
 		6A2289891EB9B1B7009F8F0A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		6A22898C1EB9B1B7009F8F0A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		6A22898E1EB9B1B7009F8F0A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		6A2289C81EBABB07009F8F0A /* MobileVLCKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = MobileVLCKit.framework; sourceTree = "<group>"; };
+		6A2289CA1EBABB2A009F8F0A /* libbz2.1.0.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libbz2.1.0.tbd; path = usr/lib/libbz2.1.0.tbd; sourceTree = SDKROOT; };
+		6A2289CC1EBABB35009F8F0A /* libz.1.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libz.1.tbd; path = usr/lib/libz.1.tbd; sourceTree = SDKROOT; };
+		6A2289CE1EBABB44009F8F0A /* libc++.1.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = "libc++.1.tbd"; path = "usr/lib/libc++.1.tbd"; sourceTree = SDKROOT; };
+		6A2289D01EBABB57009F8F0A /* libiconv.2.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libiconv.2.tbd; path = usr/lib/libiconv.2.tbd; sourceTree = SDKROOT; };
+		6A2289D21EBABB65009F8F0A /* libstdc++.6.0.9.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = "libstdc++.6.0.9.tbd"; path = "usr/lib/libstdc++.6.0.9.tbd"; sourceTree = SDKROOT; };
+		6A2289D41EBABB7B009F8F0A /* MediaPlayer.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MediaPlayer.framework; path = System/Library/Frameworks/MediaPlayer.framework; sourceTree = SDKROOT; };
+		6A2289D61EBABB86009F8F0A /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
+		6A2289D81EBABB92009F8F0A /* CoreAudio.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreAudio.framework; path = System/Library/Frameworks/CoreAudio.framework; sourceTree = SDKROOT; };
+		6A2289DA1EBABB97009F8F0A /* CoreVideo.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreVideo.framework; path = System/Library/Frameworks/CoreVideo.framework; sourceTree = SDKROOT; };
+		6A2289DC1EBABB9F009F8F0A /* CoreMedia.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMedia.framework; path = System/Library/Frameworks/CoreMedia.framework; sourceTree = SDKROOT; };
+		6A2289DE1EBABBAA009F8F0A /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
+		6A2289E01EBABBB0009F8F0A /* VideoToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = VideoToolbox.framework; path = System/Library/Frameworks/VideoToolbox.framework; sourceTree = SDKROOT; };
 		7B9419D7EC80E1D19779D71E /* Pods-SHPlayerDemo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SHPlayerDemo.release.xcconfig"; path = "Pods/Target Support Files/Pods-SHPlayerDemo/Pods-SHPlayerDemo.release.xcconfig"; sourceTree = "<group>"; };
 		81C8B53559F3CE37061A3199 /* Pods-SHPlayerDemo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SHPlayerDemo.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SHPlayerDemo/Pods-SHPlayerDemo.debug.xcconfig"; sourceTree = "<group>"; };
 		AB4EF1ECA39ED37A66A99DE1 /* libPods-SHPlayerDemo.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-SHPlayerDemo.a"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -37,7 +63,20 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6A2289E11EBABBB0009F8F0A /* VideoToolbox.framework in Frameworks */,
+				6A2289DF1EBABBAA009F8F0A /* AudioToolbox.framework in Frameworks */,
+				6A2289DD1EBABB9F009F8F0A /* CoreMedia.framework in Frameworks */,
+				6A2289DB1EBABB97009F8F0A /* CoreVideo.framework in Frameworks */,
+				6A2289D91EBABB92009F8F0A /* CoreAudio.framework in Frameworks */,
+				6A2289D71EBABB86009F8F0A /* AVFoundation.framework in Frameworks */,
+				6A2289D51EBABB7B009F8F0A /* MediaPlayer.framework in Frameworks */,
+				6A2289D31EBABB65009F8F0A /* libstdc++.6.0.9.tbd in Frameworks */,
+				6A2289D11EBABB57009F8F0A /* libiconv.2.tbd in Frameworks */,
+				6A2289CF1EBABB44009F8F0A /* libc++.1.tbd in Frameworks */,
+				6A2289CD1EBABB35009F8F0A /* libz.1.tbd in Frameworks */,
+				6A2289CB1EBABB2A009F8F0A /* libbz2.1.0.tbd in Frameworks */,
 				F09E41C8512BD0A4320F958A /* libPods-SHPlayerDemo.a in Frameworks */,
+				6A2289C91EBABB07009F8F0A /* MobileVLCKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -99,14 +138,35 @@
 		6A2289A71EB9B3A5009F8F0A /* SHPlayer */ = {
 			isa = PBXGroup;
 			children = (
+				6A2289C71EBABB07009F8F0A /* Frameworks */,
 			);
 			name = SHPlayer;
 			path = ../SHPlayer;
 			sourceTree = "<group>";
 		};
+		6A2289C71EBABB07009F8F0A /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				6A2289C81EBABB07009F8F0A /* MobileVLCKit.framework */,
+			);
+			path = Frameworks;
+			sourceTree = "<group>";
+		};
 		A8BC77D48891E2D92517DD6B /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				6A2289E01EBABBB0009F8F0A /* VideoToolbox.framework */,
+				6A2289DE1EBABBAA009F8F0A /* AudioToolbox.framework */,
+				6A2289DC1EBABB9F009F8F0A /* CoreMedia.framework */,
+				6A2289DA1EBABB97009F8F0A /* CoreVideo.framework */,
+				6A2289D81EBABB92009F8F0A /* CoreAudio.framework */,
+				6A2289D61EBABB86009F8F0A /* AVFoundation.framework */,
+				6A2289D41EBABB7B009F8F0A /* MediaPlayer.framework */,
+				6A2289D21EBABB65009F8F0A /* libstdc++.6.0.9.tbd */,
+				6A2289D01EBABB57009F8F0A /* libiconv.2.tbd */,
+				6A2289CE1EBABB44009F8F0A /* libc++.1.tbd */,
+				6A2289CC1EBABB35009F8F0A /* libz.1.tbd */,
+				6A2289CA1EBABB2A009F8F0A /* libbz2.1.0.tbd */,
 				AB4EF1ECA39ED37A66A99DE1 /* libPods-SHPlayerDemo.a */,
 			);
 			name = Frameworks;
@@ -359,6 +419,8 @@
 			baseConfigurationReference = 81C8B53559F3CE37061A3199 /* Pods-SHPlayerDemo.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_CXX_LIBRARY = "libstdc++";
+				FRAMEWORK_SEARCH_PATHS = "$(SRCROOT)/../SHPlayer/Frameworks";
 				INFOPLIST_FILE = SHPlayerDemo/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -372,6 +434,8 @@
 			baseConfigurationReference = 7B9419D7EC80E1D19779D71E /* Pods-SHPlayerDemo.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_CXX_LIBRARY = "libstdc++";
+				FRAMEWORK_SEARCH_PATHS = "$(SRCROOT)/../SHPlayer/Frameworks";
 				INFOPLIST_FILE = SHPlayerDemo/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -399,6 +463,7 @@
 				6A2289931EB9B1B7009F8F0A /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
