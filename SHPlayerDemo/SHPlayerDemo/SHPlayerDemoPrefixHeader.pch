@@ -1,0 +1,17 @@
+//
+//  SHPlayerDemoPrefixHeader.pch
+//  SHPlayerDemo
+//
+//  Created by Tristan on 2017/5/5.
+//  Copyright © 2017年 Tristan. All rights reserved.
+//
+
+#ifndef SHPlayerDemoPrefixHeader_pch
+#define SHPlayerDemoPrefixHeader_pch
+
+#import "SHSCategory.h"
+#import "SHPlayerDemoColorMacro.h"
+#import "SHPlayerDemoUtilsMacro.h"
+#import "SHPlayerDemoImportMacro.h"
+
+#endif /* SHPlayerDemoPrefixHeader_pch */

@@ -4,5 +4,6 @@ target 'SHPlayerDemo' do
     pod 'SDWebImage'
     pod 'SHSCategory'
     pod 'MBProgressHUD'
+    pod 'MJRefresh'
 end
 
