@@ -33,6 +33,8 @@
 		6AC158741EBC0A4100892AFA /* WJTableViewDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 6AC158691EBC0A4100892AFA /* WJTableViewDataSource.m */; };
 		6AC158751EBC0A4100892AFA /* CMBaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6AC1586C1EBC0A4100892AFA /* CMBaseViewController.m */; };
 		6AC1587F1EBC115A00892AFA /* SHFileBrowserViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6AC1587E1EBC115A00892AFA /* SHFileBrowserViewController.m */; };
+		6AFCE7E41EC00ABD00AA647A /* CMBaseCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 6AFCE7E11EC00ABD00AA647A /* CMBaseCollectionViewCell.m */; };
+		6AFCE7E51EC00ABD00AA647A /* CMBaseTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 6AFCE7E31EC00ABD00AA647A /* CMBaseTableViewCell.m */; };
 		F09E41C8512BD0A4320F958A /* libPods-SHPlayerDemo.a in Frameworks */ = {isa = PBXBuildFile; fileRef = AB4EF1ECA39ED37A66A99DE1 /* libPods-SHPlayerDemo.a */; };
 /* End PBXBuildFile section */
 
@@ -79,6 +81,10 @@
 		6AC1587A1EBC0F3000892AFA /* SHPlayerDemoImportMacro.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SHPlayerDemoImportMacro.h; sourceTree = "<group>"; };
 		6AC1587D1EBC115A00892AFA /* SHFileBrowserViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SHFileBrowserViewController.h; sourceTree = "<group>"; };
 		6AC1587E1EBC115A00892AFA /* SHFileBrowserViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SHFileBrowserViewController.m; sourceTree = "<group>"; };
+		6AFCE7E01EC00ABD00AA647A /* CMBaseCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CMBaseCollectionViewCell.h; sourceTree = "<group>"; };
+		6AFCE7E11EC00ABD00AA647A /* CMBaseCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CMBaseCollectionViewCell.m; sourceTree = "<group>"; };
+		6AFCE7E21EC00ABD00AA647A /* CMBaseTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CMBaseTableViewCell.h; sourceTree = "<group>"; };
+		6AFCE7E31EC00ABD00AA647A /* CMBaseTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CMBaseTableViewCell.m; sourceTree = "<group>"; };
 		7B9419D7EC80E1D19779D71E /* Pods-SHPlayerDemo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SHPlayerDemo.release.xcconfig"; path = "Pods/Target Support Files/Pods-SHPlayerDemo/Pods-SHPlayerDemo.release.xcconfig"; sourceTree = "<group>"; };
 		81C8B53559F3CE37061A3199 /* Pods-SHPlayerDemo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SHPlayerDemo.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SHPlayerDemo/Pods-SHPlayerDemo.debug.xcconfig"; sourceTree = "<group>"; };
 		AB4EF1ECA39ED37A66A99DE1 /* libPods-SHPlayerDemo.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-SHPlayerDemo.a"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -178,6 +184,7 @@
 		6AC158531EBC0A4100892AFA /* Classes */ = {
 			isa = PBXGroup;
 			children = (
+				6AFCE7DF1EC00ABD00AA647A /* BaseCell */,
 				6AC158771EBC0CB600892AFA /* Macros */,
 				6AC158541EBC0A4100892AFA /* AppDelegate */,
 				6AC158571EBC0A4100892AFA /* BaseViewController */,
@@ -283,6 +290,17 @@
 				6AC1587E1EBC115A00892AFA /* SHFileBrowserViewController.m */,
 			);
 			path = FileBrowser;
+			sourceTree = "<group>";
+		};
+		6AFCE7DF1EC00ABD00AA647A /* BaseCell */ = {
+			isa = PBXGroup;
+			children = (
+				6AFCE7E01EC00ABD00AA647A /* CMBaseCollectionViewCell.h */,
+				6AFCE7E11EC00ABD00AA647A /* CMBaseCollectionViewCell.m */,
+				6AFCE7E21EC00ABD00AA647A /* CMBaseTableViewCell.h */,
+				6AFCE7E31EC00ABD00AA647A /* CMBaseTableViewCell.m */,
+			);
+			path = BaseCell;
 			sourceTree = "<group>";
 		};
 		A8BC77D48891E2D92517DD6B /* Frameworks */ = {
@@ -434,10 +452,12 @@
 				6AC158711EBC0A4100892AFA /* CMBasePullTableVIewViewController.m in Sources */,
 				6AC158701EBC0A4100892AFA /* CMBaseSearchDisplayViewController.m in Sources */,
 				6AC158741EBC0A4100892AFA /* WJTableViewDataSource.m in Sources */,
+				6AFCE7E41EC00ABD00AA647A /* CMBaseCollectionViewCell.m in Sources */,
 				6AC1587F1EBC115A00892AFA /* SHFileBrowserViewController.m in Sources */,
 				6AC1586F1EBC0A4100892AFA /* CMBaseNavigationController.m in Sources */,
 				6A22897F1EB9B1B7009F8F0A /* main.m in Sources */,
 				6AC158721EBC0A4100892AFA /* CMBaseTableViewController.m in Sources */,
+				6AFCE7E51EC00ABD00AA647A /* CMBaseTableViewCell.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

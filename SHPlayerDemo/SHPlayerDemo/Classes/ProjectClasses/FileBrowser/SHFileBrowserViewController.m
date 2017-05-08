@@ -10,6 +10,8 @@
 
 @interface SHFileBrowserViewController ()
 
+@property (nonatomic, strong) UITableView *tableView;
+
 @end
 
 @implementation SHFileBrowserViewController
