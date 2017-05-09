@@ -10,6 +10,11 @@
 #define SHPlayerDemoImportMacro_h
 
 #import "MJRefresh.h"
+#import "Masonry.h"
+#import "MBProgressHUD.h"
+#import <ReactiveCocoa/ReactiveCocoa.h>
+#import <ReactiveCocoa/RACEXTScope.h>
+
 
 
 #endif /* SHPlayerDemoImportMacro_h */
