@@ -2,6 +2,13 @@ PODS:
   - Masonry (1.0.2)
   - MBProgressHUD (1.0.0)
   - MJRefresh (3.1.12)
+  - ReactiveCocoa (2.3.1):
+    - ReactiveCocoa/UI (= 2.3.1)
+  - ReactiveCocoa/Core (2.3.1):
+    - ReactiveCocoa/no-arc
+  - ReactiveCocoa/no-arc (2.3.1)
+  - ReactiveCocoa/UI (2.3.1):
+    - ReactiveCocoa/Core
   - SDWebImage (4.0.0):
     - SDWebImage/Core (= 4.0.0)
   - SDWebImage/Core (4.0.0)
@@ -11,6 +18,7 @@ DEPENDENCIES:
   - Masonry
   - MBProgressHUD
   - MJRefresh
+  - ReactiveCocoa (= 2.3.1)
   - SDWebImage
   - SHSCategory
 
@@ -18,9 +26,10 @@ SPEC CHECKSUMS:
   Masonry: 7c429b56da9d4ee0bbb3ed77a5ea710d6a5df39e
   MBProgressHUD: 4890f671c94e8a0f3cf959aa731e9de2f036d71a
   MJRefresh: b96cdb21c4aa75a7b07654311ab2f315c497e806
+  ReactiveCocoa: 3fe9b233ca6db810e86681b5749488564c1179a1
   SDWebImage: 76a6348bdc74eb5a55dd08a091ef298e56b55e41
   SHSCategory: 45ae84ff3708fc677ed25ff22e5d4d7ad82676b3
 
-PODFILE CHECKSUM: 7fb4525429aa96530bb4f33b2650320dd33c65ec
+PODFILE CHECKSUM: d53afa062198bb97058ed2a8891c34e5d33a57ce
 
 COCOAPODS: 1.2.1

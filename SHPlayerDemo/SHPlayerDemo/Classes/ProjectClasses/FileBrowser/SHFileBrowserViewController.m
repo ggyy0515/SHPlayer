@@ -9,6 +9,10 @@
 #import "SHFileBrowserViewController.h"
 
 @interface SHFileBrowserViewController ()
+<
+    UITableViewDelegate,
+    UITableViewDataSource
+>
 
 @property (nonatomic, strong) UITableView *tableView;
 
