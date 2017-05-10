@@ -38,6 +38,7 @@
 		6AFCE8331EC1B83B00AA647A /* SHPlayerControlView.m in Sources */ = {isa = PBXBuildFile; fileRef = 6AFCE8321EC1B83B00AA647A /* SHPlayerControlView.m */; };
 		6AFCE8381EC2FD1C00AA647A /* ASValuePopUpView.m in Sources */ = {isa = PBXBuildFile; fileRef = 6AFCE8351EC2FD1C00AA647A /* ASValuePopUpView.m */; };
 		6AFCE8391EC2FD1C00AA647A /* ASValueTrackingSlider.m in Sources */ = {isa = PBXBuildFile; fileRef = 6AFCE8371EC2FD1C00AA647A /* ASValueTrackingSlider.m */; };
+		6AFCE83B1EC3005B00AA647A /* ZFPlayer.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 6AFCE83A1EC3005B00AA647A /* ZFPlayer.bundle */; };
 		F09E41C8512BD0A4320F958A /* libPods-SHPlayerDemo.a in Frameworks */ = {isa = PBXBuildFile; fileRef = AB4EF1ECA39ED37A66A99DE1 /* libPods-SHPlayerDemo.a */; };
 /* End PBXBuildFile section */
 
@@ -94,6 +95,7 @@
 		6AFCE8351EC2FD1C00AA647A /* ASValuePopUpView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ASValuePopUpView.m; sourceTree = "<group>"; };
 		6AFCE8361EC2FD1C00AA647A /* ASValueTrackingSlider.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ASValueTrackingSlider.h; sourceTree = "<group>"; };
 		6AFCE8371EC2FD1C00AA647A /* ASValueTrackingSlider.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ASValueTrackingSlider.m; sourceTree = "<group>"; };
+		6AFCE83A1EC3005B00AA647A /* ZFPlayer.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = ZFPlayer.bundle; sourceTree = "<group>"; };
 		7B9419D7EC80E1D19779D71E /* Pods-SHPlayerDemo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SHPlayerDemo.release.xcconfig"; path = "Pods/Target Support Files/Pods-SHPlayerDemo/Pods-SHPlayerDemo.release.xcconfig"; sourceTree = "<group>"; };
 		81C8B53559F3CE37061A3199 /* Pods-SHPlayerDemo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SHPlayerDemo.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SHPlayerDemo/Pods-SHPlayerDemo.debug.xcconfig"; sourceTree = "<group>"; };
 		AB4EF1ECA39ED37A66A99DE1 /* libPods-SHPlayerDemo.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-SHPlayerDemo.a"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -316,6 +318,7 @@
 		6AFCE8301EC1B81200AA647A /* Classes */ = {
 			isa = PBXGroup;
 			children = (
+				6AFCE83A1EC3005B00AA647A /* ZFPlayer.bundle */,
 				6AFCE8311EC1B83B00AA647A /* SHPlayerControlView.h */,
 				6AFCE8321EC1B83B00AA647A /* SHPlayerControlView.m */,
 				6AFCE8341EC2FD1C00AA647A /* ASValuePopUpView.h */,
@@ -409,6 +412,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				6A22898D1EB9B1B7009F8F0A /* LaunchScreen.storyboard in Resources */,
+				6AFCE83B1EC3005B00AA647A /* ZFPlayer.bundle in Resources */,
 				6A22898A1EB9B1B7009F8F0A /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
