@@ -7,14 +7,15 @@
 //
 
 #import "SHFileBrowserViewController.h"
+#import "SHPlayerControlView.h"
 
 @interface SHFileBrowserViewController ()
-<
-    UITableViewDelegate,
-    UITableViewDataSource
->
-
-@property (nonatomic, strong) UITableView *tableView;
+//<
+//    UITableViewDelegate,
+//    UITableViewDataSource
+//>
+//
+//@property (nonatomic, strong) UITableView *tableView;
 
 @end
 
