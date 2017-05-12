@@ -7,7 +7,7 @@
 //
 
 #import "SHFileBrowserViewController.h"
-#import "SHPlayerControlView.h"
+#import "SHPlayView.h"
 #import "SHPlayer.h"
 
 @interface SHFileBrowserViewController ()
@@ -25,13 +25,14 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-    SHPlayerControlView *view = [[SHPlayerControlView alloc] init];
+    SHPlayView *view = [[SHPlayView alloc] init];
     [self.navigationController.view addSubview:view];
     [view mas_makeConstraints:^(MASConstraintMaker *make) {
         make.size.mas_equalTo(CGSizeMake(SCREENWIDTH, SCREENWIDTH * 9.f / 16.f));
         make.left.right.mas_equalTo(self.navigationController.view);
         make.top.mas_equalTo(20.f);
     }];
+    [view playWithUrl:[NSURL fileURLWithPath:@"/Users/Tristan/Downloads/mlrs.rmvb"]];
 }
 
 - (void)didReceiveMemoryWarning {

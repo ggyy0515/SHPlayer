@@ -13,6 +13,9 @@
 #import "SHPlayerControlView.h"
 
 @interface SHPlayView ()
+<
+    VLCMediaPlayerDelegate
+>
 
 @property (nonatomic, strong) VLCMediaPlayer *player;
 @property (nonatomic, strong) SHPlayerControlView *controlView;
@@ -32,16 +35,47 @@
 }
 
 - (void)drawRect:(CGRect)rect {
-    
+    [super drawRect:rect];
+    [self setupPlayer];
+    [self setupPlayeView];
 }
 
 #pragma mark - Lazy Loading
+
+- (VLCMediaPlayer *)player {
+    if (!_player) {
+        _player = [[VLCMediaPlayer alloc] init];
+        _player.delegate = self;
+    }
+    return _player;
+}
 
 - (SHPlayerControlView *)controlView {
     if (!_controlView) {
         _controlView = [[SHPlayerControlView alloc] init];
     }
     return _controlView;
+}
+
+#pragma mark - Private
+
+- (void)setupPlayeView {
+    self.backgroundColor = UIColorFromHexString(@"#000000");
+    [self addSubview:self.controlView];
+}
+
+- (void)setupPlayer {
+    [self.player setDrawable:self];
+}
+
+#pragma mark - Public
+
+- (void)playWithUrl:(NSURL *)url {
+    if ([self.player isPlaying]) {
+        [_player stop];
+    }
+    self.player.media = [[VLCMedia alloc] initWithURL:url];
+    [self.player play];
 }
 
 

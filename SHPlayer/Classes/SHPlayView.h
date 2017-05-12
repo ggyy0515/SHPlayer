@@ -10,4 +10,6 @@
 
 @interface SHPlayView : UIView
 
+- (void)playWithUrl:(NSURL *)url;
+
 @end
