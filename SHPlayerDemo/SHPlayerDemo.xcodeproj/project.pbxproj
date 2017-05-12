@@ -24,6 +24,8 @@
 		6A2289DF1EBABBAA009F8F0A /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6A2289DE1EBABBAA009F8F0A /* AudioToolbox.framework */; };
 		6A2289E11EBABBB0009F8F0A /* VideoToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6A2289E01EBABBB0009F8F0A /* VideoToolbox.framework */; };
 		6AAF3F721EC54812003A87AD /* MMMaterialDesignSpinner.m in Sources */ = {isa = PBXBuildFile; fileRef = 6AAF3F711EC54812003A87AD /* MMMaterialDesignSpinner.m */; };
+		6AAF3F741EC598F2003A87AD /* SHPlayer.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 6AAF3F731EC598F2003A87AD /* SHPlayer.bundle */; };
+		6AAF3F771EC59ADD003A87AD /* SHPlayView.m in Sources */ = {isa = PBXBuildFile; fileRef = 6AAF3F761EC59ADD003A87AD /* SHPlayView.m */; };
 		6AC1586D1EBC0A4100892AFA /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 6AC158561EBC0A4100892AFA /* AppDelegate.m */; };
 		6AC1586E1EBC0A4100892AFA /* CMBaseCollectionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6AC1585A1EBC0A4100892AFA /* CMBaseCollectionViewController.m */; };
 		6AC1586F1EBC0A4100892AFA /* CMBaseNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6AC1585D1EBC0A4100892AFA /* CMBaseNavigationController.m */; };
@@ -39,7 +41,6 @@
 		6AFCE8331EC1B83B00AA647A /* SHPlayerControlView.m in Sources */ = {isa = PBXBuildFile; fileRef = 6AFCE8321EC1B83B00AA647A /* SHPlayerControlView.m */; };
 		6AFCE8381EC2FD1C00AA647A /* ASValuePopUpView.m in Sources */ = {isa = PBXBuildFile; fileRef = 6AFCE8351EC2FD1C00AA647A /* ASValuePopUpView.m */; };
 		6AFCE8391EC2FD1C00AA647A /* ASValueTrackingSlider.m in Sources */ = {isa = PBXBuildFile; fileRef = 6AFCE8371EC2FD1C00AA647A /* ASValueTrackingSlider.m */; };
-		6AFCE83B1EC3005B00AA647A /* ZFPlayer.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 6AFCE83A1EC3005B00AA647A /* ZFPlayer.bundle */; };
 		F09E41C8512BD0A4320F958A /* libPods-SHPlayerDemo.a in Frameworks */ = {isa = PBXBuildFile; fileRef = AB4EF1ECA39ED37A66A99DE1 /* libPods-SHPlayerDemo.a */; };
 /* End PBXBuildFile section */
 
@@ -64,6 +65,9 @@
 		6A2289E01EBABBB0009F8F0A /* VideoToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = VideoToolbox.framework; path = System/Library/Frameworks/VideoToolbox.framework; sourceTree = SDKROOT; };
 		6AAF3F701EC54812003A87AD /* MMMaterialDesignSpinner.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MMMaterialDesignSpinner.h; sourceTree = "<group>"; };
 		6AAF3F711EC54812003A87AD /* MMMaterialDesignSpinner.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MMMaterialDesignSpinner.m; sourceTree = "<group>"; };
+		6AAF3F731EC598F2003A87AD /* SHPlayer.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = SHPlayer.bundle; sourceTree = "<group>"; };
+		6AAF3F751EC59ADD003A87AD /* SHPlayView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SHPlayView.h; sourceTree = "<group>"; };
+		6AAF3F761EC59ADD003A87AD /* SHPlayView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SHPlayView.m; sourceTree = "<group>"; };
 		6AC158551EBC0A4100892AFA /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		6AC158561EBC0A4100892AFA /* AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		6AC158591EBC0A4100892AFA /* CMBaseCollectionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CMBaseCollectionViewController.h; sourceTree = "<group>"; };
@@ -98,7 +102,6 @@
 		6AFCE8351EC2FD1C00AA647A /* ASValuePopUpView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ASValuePopUpView.m; sourceTree = "<group>"; };
 		6AFCE8361EC2FD1C00AA647A /* ASValueTrackingSlider.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ASValueTrackingSlider.h; sourceTree = "<group>"; };
 		6AFCE8371EC2FD1C00AA647A /* ASValueTrackingSlider.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ASValueTrackingSlider.m; sourceTree = "<group>"; };
-		6AFCE83A1EC3005B00AA647A /* ZFPlayer.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = ZFPlayer.bundle; sourceTree = "<group>"; };
 		6AFCE83C1EC306D600AA647A /* SHPlayer.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SHPlayer.h; sourceTree = "<group>"; };
 		7B9419D7EC80E1D19779D71E /* Pods-SHPlayerDemo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SHPlayerDemo.release.xcconfig"; path = "Pods/Target Support Files/Pods-SHPlayerDemo/Pods-SHPlayerDemo.release.xcconfig"; sourceTree = "<group>"; };
 		81C8B53559F3CE37061A3199 /* Pods-SHPlayerDemo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SHPlayerDemo.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SHPlayerDemo/Pods-SHPlayerDemo.debug.xcconfig"; sourceTree = "<group>"; };
@@ -322,10 +325,12 @@
 		6AFCE8301EC1B81200AA647A /* Classes */ = {
 			isa = PBXGroup;
 			children = (
-				6AFCE83A1EC3005B00AA647A /* ZFPlayer.bundle */,
+				6AAF3F731EC598F2003A87AD /* SHPlayer.bundle */,
 				6AFCE83C1EC306D600AA647A /* SHPlayer.h */,
 				6AFCE8311EC1B83B00AA647A /* SHPlayerControlView.h */,
 				6AFCE8321EC1B83B00AA647A /* SHPlayerControlView.m */,
+				6AAF3F751EC59ADD003A87AD /* SHPlayView.h */,
+				6AAF3F761EC59ADD003A87AD /* SHPlayView.m */,
 				6AFCE8341EC2FD1C00AA647A /* ASValuePopUpView.h */,
 				6AFCE8351EC2FD1C00AA647A /* ASValuePopUpView.m */,
 				6AFCE8361EC2FD1C00AA647A /* ASValueTrackingSlider.h */,
@@ -419,8 +424,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				6A22898D1EB9B1B7009F8F0A /* LaunchScreen.storyboard in Resources */,
-				6AFCE83B1EC3005B00AA647A /* ZFPlayer.bundle in Resources */,
 				6A22898A1EB9B1B7009F8F0A /* Assets.xcassets in Resources */,
+				6AAF3F741EC598F2003A87AD /* SHPlayer.bundle in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -488,6 +493,7 @@
 				6AC158701EBC0A4100892AFA /* CMBaseSearchDisplayViewController.m in Sources */,
 				6AC158741EBC0A4100892AFA /* WJTableViewDataSource.m in Sources */,
 				6AFCE7E41EC00ABD00AA647A /* CMBaseCollectionViewCell.m in Sources */,
+				6AAF3F771EC59ADD003A87AD /* SHPlayView.m in Sources */,
 				6AFCE8391EC2FD1C00AA647A /* ASValueTrackingSlider.m in Sources */,
 				6AC1587F1EBC115A00892AFA /* SHFileBrowserViewController.m in Sources */,
 				6AC1586F1EBC0A4100892AFA /* CMBaseNavigationController.m in Sources */,

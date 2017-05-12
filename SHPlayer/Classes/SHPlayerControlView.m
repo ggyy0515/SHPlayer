@@ -32,11 +32,22 @@
 /**
  当前时间
  */
-@property (nonatomic, strong) UILabel *currtenTimeLabel;
+@property (nonatomic, strong) UILabel *currentTimeLabel;
 /**
  滑块
  */
 @property (nonatomic, strong) ASValueTrackingSlider *slider;
+/**
+ 缩放按钮
+ */
+@property (nonatomic, strong) UIButton *shrinkBtn;
+/**
+ 变成竖直
+ */
+@property (nonatomic, strong) UIButton *beupBtn;
+
+@property (nonatomic, strong) UIImageView *topImageView;
+@property (nonatomic, strong) UIImageView *bottomImageView;
 
 @end
 
@@ -52,7 +63,85 @@
 }
 
 - (void)createUI {
+    self.backgroundColor = [UIColorFromHexString(@"#000000") colorWithAlphaComponent:0.3];
+    
+    [self addSubview:self.topImageView];
+    [self addSubview:self.bottomImageView];
+    [self addSubview:self.backBtn];
+    
+    [self.topImageView addSubview:self.beupBtn];
+    [self.topImageView addSubview:self.titleLabel];
+    
+    [self.bottomImageView addSubview:self.playBtn];
+    [self.bottomImageView addSubview:self.currentTimeLabel];
+    [self.bottomImageView addSubview:self.slider];
+    [self.bottomImageView addSubview:self.totalTimeLabel];
+    [self.bottomImageView addSubview:self.shrinkBtn];
+    
+    [self addLayout];
+}
 
+- (void)addLayout {
+    [self.topImageView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.leading.trailing.equalTo(self);
+        make.top.equalTo(self.mas_top).offset(0);
+        make.height.mas_equalTo(50);
+    }];
+    
+    [self.backBtn mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.leading.equalTo(self.topImageView.mas_leading).offset(10);
+        make.top.equalTo(self.topImageView.mas_top).offset(3);
+        make.width.height.mas_equalTo(40);
+    }];
+    
+    [self.beupBtn mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.leading.equalTo(self.topImageView.mas_leading).offset(10);
+        make.top.equalTo(self.topImageView.mas_top).offset(3);
+        make.width.height.mas_equalTo(40);
+    }];
+    
+    [self.titleLabel mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.leading.equalTo(self.beupBtn.mas_trailing).offset(5);
+        make.centerY.equalTo(self.beupBtn.mas_centerY);
+        make.trailing.equalTo(self.topImageView.mas_trailing).offset(-10);
+    }];
+    
+    [self.bottomImageView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.leading.trailing.bottom.mas_equalTo(0);
+        make.height.mas_equalTo(50);
+    }];
+    
+    [self.playBtn mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.leading.equalTo(self.bottomImageView.mas_leading).offset(5);
+        make.bottom.equalTo(self.bottomImageView.mas_bottom).offset(-5);
+        make.width.height.mas_equalTo(30);
+    }];
+    
+    [self.currentTimeLabel mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.leading.equalTo(self.playBtn.mas_trailing).offset(-3);
+        make.centerY.equalTo(self.playBtn.mas_centerY);
+        make.width.mas_equalTo(43);
+    }];
+    
+    [self.shrinkBtn mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.width.height.mas_equalTo(30);
+        make.trailing.equalTo(self.bottomImageView.mas_trailing).offset(-5);
+        make.centerY.equalTo(self.playBtn.mas_centerY);
+    }];
+    
+    [self.totalTimeLabel mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.trailing.equalTo(self.shrinkBtn.mas_leading).offset(3);
+        make.centerY.equalTo(self.playBtn.mas_centerY);
+        make.width.mas_equalTo(43);
+    }];
+    
+    [self.slider mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.leading.equalTo(self.currentTimeLabel.mas_trailing).offset(4);
+        make.trailing.equalTo(self.totalTimeLabel.mas_leading).offset(-4);
+        make.centerY.equalTo(self.currentTimeLabel.mas_centerY).offset(-1);
+        make.height.mas_equalTo(30);
+    }];
+    
 }
 
 #pragma mark - Lazy Loading
@@ -76,6 +165,113 @@
         }];
     }
     return _playBtn;
+}
+
+- (UIButton *)backBtn {
+    if (!_backBtn) {
+        _backBtn = [UIButton new];
+        [_backBtn setImage:SHPlayerImage(@"SHPlayer_back_full") forState:UIControlStateNormal];
+        [_backBtn handleControlEvent:UIControlEventTouchUpInside withBlock:^(UIButton *sender) {
+            
+        }];
+    }
+    return _backBtn;
+}
+
+- (UILabel *)totalTimeLabel {
+    if (!_totalTimeLabel) {
+        _totalTimeLabel = [UILabel new];
+        _totalTimeLabel.textColor     = [UIColor whiteColor];
+        _totalTimeLabel.font          = [UIFont systemFontOfSize:12.0f];
+        _totalTimeLabel.textAlignment = NSTextAlignmentCenter;
+    }
+    return _totalTimeLabel;
+}
+
+- (UILabel *)currentTimeLabel {
+    if (!_currentTimeLabel) {
+        _currentTimeLabel               = [[UILabel alloc] init];
+        _currentTimeLabel.textColor     = [UIColor whiteColor];
+        _currentTimeLabel.font          = [UIFont systemFontOfSize:12.0f];
+        _currentTimeLabel.textAlignment = NSTextAlignmentCenter;
+    }
+    return _currentTimeLabel;
+}
+
+- (UIImageView *)topImageView {
+    if (!_topImageView) {
+        _topImageView                        = [[UIImageView alloc] init];
+        _topImageView.userInteractionEnabled = YES;
+//        _topImageView.alpha                  = 0;
+        _topImageView.image                  = SHPlayerImage(@"SHPlayer_top_shadow");
+    }
+    return _topImageView;
+}
+
+- (UIButton *)shrinkBtn {
+    if (!_shrinkBtn) {
+        _shrinkBtn = [UIButton new];
+        [_shrinkBtn setImage:SHPlayerImage(@"SHPlayer_fullscreen") forState:UIControlStateNormal];
+        [_shrinkBtn setImage:SHPlayerImage(@"SHPlayer_shrinkscreen") forState:UIControlStateSelected];
+        [_shrinkBtn handleControlEvent:UIControlEventTouchUpInside withBlock:^(UIButton *sender) {
+            
+        }];
+    }
+    return _shrinkBtn;
+}
+
+- (UIButton *)beupBtn {
+    if (!_beupBtn) {
+        _beupBtn = [UIButton new];
+        [_beupBtn setImage:SHPlayerImage(@"SHPlayer_back_full") forState:UIControlStateNormal];
+        [_beupBtn handleControlEvent:UIControlEventTouchUpInside withBlock:^(UIButton *sender) {
+            
+        }];
+    }
+    return _beupBtn;
+}
+
+- (ASValueTrackingSlider *)slider {
+    if (!_slider) {
+        _slider                       = [[ASValueTrackingSlider alloc] init];
+        _slider.popUpViewCornerRadius = 0.0;
+        _slider.popUpViewColor = UIColorFromHexString(@"#131309");
+        _slider.popUpViewArrowLength = 8;
+        
+        [_slider setThumbImage:SHPlayerImage(@"SHPlayer_slider") forState:UIControlStateNormal];
+        _slider.maximumValue          = 1;
+        _slider.minimumTrackTintColor = [UIColor whiteColor];
+        _slider.maximumTrackTintColor = [UIColor colorWithRed:0.5 green:0.5 blue:0.5 alpha:0.5];
+        
+//        // slider开始滑动事件
+//        [_slider addTarget:self action:@selector(progressSliderTouchBegan:) forControlEvents:UIControlEventTouchDown];
+//        // slider滑动中事件
+//        [_slider addTarget:self action:@selector(progressSliderValueChanged:) forControlEvents:UIControlEventValueChanged];
+//        // slider结束滑动事件
+//        [_slider addTarget:self action:@selector(progressSliderTouchEnded:) forControlEvents:UIControlEventTouchUpInside | UIControlEventTouchCancel | UIControlEventTouchUpOutside];
+//        
+//        UITapGestureRecognizer *sliderTap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tapSliderAction:)];
+//        [_slider addGestureRecognizer:sliderTap];
+//        
+//        UIPanGestureRecognizer *panRecognizer = [[UIPanGestureRecognizer alloc]initWithTarget:self action:@selector(panRecognizer:)];
+//        panRecognizer.delegate = self;
+//        [panRecognizer setMaximumNumberOfTouches:1];
+//        [panRecognizer setDelaysTouchesBegan:YES];
+//        [panRecognizer setDelaysTouchesEnded:YES];
+//        [panRecognizer setCancelsTouchesInView:YES];
+//        [_slider addGestureRecognizer:panRecognizer];
+    }
+    return _slider;
+}
+
+- (UIImageView *)bottomImageView {
+    if (!_bottomImageView) {
+        _bottomImageView                        = [[UIImageView alloc] init];
+        _bottomImageView.userInteractionEnabled = YES;
+//        _bottomImageView.alpha                  = 0;
+        _bottomImageView.image                  = SHPlayerImage(@"SHPlayer_bottom_shadow");
+    }
+    return _bottomImageView;
 }
 
 @end
