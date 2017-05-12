@@ -23,6 +23,7 @@
 		6A2289DD1EBABB9F009F8F0A /* CoreMedia.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6A2289DC1EBABB9F009F8F0A /* CoreMedia.framework */; };
 		6A2289DF1EBABBAA009F8F0A /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6A2289DE1EBABBAA009F8F0A /* AudioToolbox.framework */; };
 		6A2289E11EBABBB0009F8F0A /* VideoToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6A2289E01EBABBB0009F8F0A /* VideoToolbox.framework */; };
+		6AAF3F721EC54812003A87AD /* MMMaterialDesignSpinner.m in Sources */ = {isa = PBXBuildFile; fileRef = 6AAF3F711EC54812003A87AD /* MMMaterialDesignSpinner.m */; };
 		6AC1586D1EBC0A4100892AFA /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 6AC158561EBC0A4100892AFA /* AppDelegate.m */; };
 		6AC1586E1EBC0A4100892AFA /* CMBaseCollectionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6AC1585A1EBC0A4100892AFA /* CMBaseCollectionViewController.m */; };
 		6AC1586F1EBC0A4100892AFA /* CMBaseNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6AC1585D1EBC0A4100892AFA /* CMBaseNavigationController.m */; };
@@ -61,6 +62,8 @@
 		6A2289DC1EBABB9F009F8F0A /* CoreMedia.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMedia.framework; path = System/Library/Frameworks/CoreMedia.framework; sourceTree = SDKROOT; };
 		6A2289DE1EBABBAA009F8F0A /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
 		6A2289E01EBABBB0009F8F0A /* VideoToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = VideoToolbox.framework; path = System/Library/Frameworks/VideoToolbox.framework; sourceTree = SDKROOT; };
+		6AAF3F701EC54812003A87AD /* MMMaterialDesignSpinner.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MMMaterialDesignSpinner.h; sourceTree = "<group>"; };
+		6AAF3F711EC54812003A87AD /* MMMaterialDesignSpinner.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MMMaterialDesignSpinner.m; sourceTree = "<group>"; };
 		6AC158551EBC0A4100892AFA /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		6AC158561EBC0A4100892AFA /* AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		6AC158591EBC0A4100892AFA /* CMBaseCollectionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CMBaseCollectionViewController.h; sourceTree = "<group>"; };
@@ -96,6 +99,7 @@
 		6AFCE8361EC2FD1C00AA647A /* ASValueTrackingSlider.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ASValueTrackingSlider.h; sourceTree = "<group>"; };
 		6AFCE8371EC2FD1C00AA647A /* ASValueTrackingSlider.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ASValueTrackingSlider.m; sourceTree = "<group>"; };
 		6AFCE83A1EC3005B00AA647A /* ZFPlayer.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = ZFPlayer.bundle; sourceTree = "<group>"; };
+		6AFCE83C1EC306D600AA647A /* SHPlayer.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SHPlayer.h; sourceTree = "<group>"; };
 		7B9419D7EC80E1D19779D71E /* Pods-SHPlayerDemo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SHPlayerDemo.release.xcconfig"; path = "Pods/Target Support Files/Pods-SHPlayerDemo/Pods-SHPlayerDemo.release.xcconfig"; sourceTree = "<group>"; };
 		81C8B53559F3CE37061A3199 /* Pods-SHPlayerDemo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SHPlayerDemo.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SHPlayerDemo/Pods-SHPlayerDemo.debug.xcconfig"; sourceTree = "<group>"; };
 		AB4EF1ECA39ED37A66A99DE1 /* libPods-SHPlayerDemo.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-SHPlayerDemo.a"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -319,12 +323,15 @@
 			isa = PBXGroup;
 			children = (
 				6AFCE83A1EC3005B00AA647A /* ZFPlayer.bundle */,
+				6AFCE83C1EC306D600AA647A /* SHPlayer.h */,
 				6AFCE8311EC1B83B00AA647A /* SHPlayerControlView.h */,
 				6AFCE8321EC1B83B00AA647A /* SHPlayerControlView.m */,
 				6AFCE8341EC2FD1C00AA647A /* ASValuePopUpView.h */,
 				6AFCE8351EC2FD1C00AA647A /* ASValuePopUpView.m */,
 				6AFCE8361EC2FD1C00AA647A /* ASValueTrackingSlider.h */,
 				6AFCE8371EC2FD1C00AA647A /* ASValueTrackingSlider.m */,
+				6AAF3F701EC54812003A87AD /* MMMaterialDesignSpinner.h */,
+				6AAF3F711EC54812003A87AD /* MMMaterialDesignSpinner.m */,
 			);
 			path = Classes;
 			sourceTree = "<group>";
@@ -484,6 +491,7 @@
 				6AFCE8391EC2FD1C00AA647A /* ASValueTrackingSlider.m in Sources */,
 				6AC1587F1EBC115A00892AFA /* SHFileBrowserViewController.m in Sources */,
 				6AC1586F1EBC0A4100892AFA /* CMBaseNavigationController.m in Sources */,
+				6AAF3F721EC54812003A87AD /* MMMaterialDesignSpinner.m in Sources */,
 				6AFCE8381EC2FD1C00AA647A /* ASValuePopUpView.m in Sources */,
 				6A22897F1EB9B1B7009F8F0A /* main.m in Sources */,
 				6AC158721EBC0A4100892AFA /* CMBaseTableViewController.m in Sources */,
