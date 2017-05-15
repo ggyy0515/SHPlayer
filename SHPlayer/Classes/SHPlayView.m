@@ -38,6 +38,13 @@
     [super drawRect:rect];
     [self setupPlayer];
     [self setupPlayeView];
+    [self addLayout];
+}
+
+- (void)addLayout {
+    [self.controlView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.edges.mas_equalTo(self).insets(UIEdgeInsetsZero);
+    }];
 }
 
 #pragma mark - Lazy Loading
@@ -76,6 +83,12 @@
     }
     self.player.media = [[VLCMedia alloc] initWithURL:url];
     [self.player play];
+}
+
+#pragma mark - VLCMediaPlayerDelegate
+
+- (void)mediaPlayerStateChanged:(NSNotification *)aNotification {
+    [self bringSubviewToFront:self.controlView];
 }
 
 
