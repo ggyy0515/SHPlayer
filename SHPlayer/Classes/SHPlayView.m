@@ -98,4 +98,12 @@
     [self.controlView setCurrentTime:self.player.time.stringValue totalTime:self.player.media.length.stringValue sliderValue:sliderValue];
 }
 
+#pragma mark - SHPlayControlViewDelegate
+
+-(void)playControlViewDidChangeSliderValue:(CGFloat)sliderValue {
+    int time = self.player.media.length.intValue * sliderValue;
+    VLCTime *targetTime = [VLCTime timeWithInt:time];
+    [self.player setTime:targetTime];
+}
+
 @end
