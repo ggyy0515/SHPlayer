@@ -248,13 +248,13 @@
         _slider.minimumTrackTintColor = [UIColor whiteColor];
         _slider.maximumTrackTintColor = [UIColor colorWithRed:0.5 green:0.5 blue:0.5 alpha:0.5];
         
-//        // slider开始滑动事件
-//        [_slider addTarget:self action:@selector(progressSliderTouchBegan:) forControlEvents:UIControlEventTouchDown];
-//        // slider滑动中事件
-//        [_slider addTarget:self action:@selector(progressSliderValueChanged:) forControlEvents:UIControlEventValueChanged];
-//        // slider结束滑动事件
-//        [_slider addTarget:self action:@selector(progressSliderTouchEnded:) forControlEvents:UIControlEventTouchUpInside | UIControlEventTouchCancel | UIControlEventTouchUpOutside];
-//        
+        // slider开始滑动事件
+        [_slider addTarget:self action:@selector(progressSliderTouchBegan:) forControlEvents:UIControlEventTouchDown];
+        // slider滑动中事件
+        [_slider addTarget:self action:@selector(progressSliderValueChanged:) forControlEvents:UIControlEventValueChanged];
+        // slider结束滑动事件
+        [_slider addTarget:self action:@selector(progressSliderTouchEnded:) forControlEvents:UIControlEventTouchUpInside | UIControlEventTouchCancel | UIControlEventTouchUpOutside];
+//
 //        UITapGestureRecognizer *sliderTap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tapSliderAction:)];
 //        [_slider addGestureRecognizer:sliderTap];
 //        
@@ -295,6 +295,9 @@
 
 // slider结束滑动
 - (void)progressSliderTouchEnded:(ASValueTrackingSlider *)slider {
+    if (IS_NORMAL_RESPONDDELEGATE_FUNC(_delegate, @selector(playControlViewDidChangeSliderValue:))) {
+        [_delegate playControlViewDidChangeSliderValue:slider.value];
+    }
     _isDragged = NO;
 }
 
@@ -303,7 +306,7 @@
 - (void)setCurrentTime:(NSString *)currentTime totalTime:(NSString *)totalTime sliderValue:(CGFloat)sliderValue {
     self.currentTimeLabel.text = currentTime;
     self.totalTimeLabel.text = totalTime;
-    if (!self.slider.isFirstResponder) {
+    if (!_isDragged) {
         self.slider.value = sliderValue;
     }
 }

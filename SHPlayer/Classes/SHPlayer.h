@@ -18,5 +18,6 @@
 
 #define SHPlayerImage(file)                 [UIImage imageNamed:SHPlayerSrcName(file)] ? :[UIImage imageNamed:SHPlayerFrameworkSrcName(file)]
 
+#define IS_NORMAL_RESPONDDELEGATE_FUNC(id,SEL) (id && [id respondsToSelector:SEL])
 
 #endif /* SHPlayer_h */

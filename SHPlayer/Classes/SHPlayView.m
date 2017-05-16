@@ -14,7 +14,8 @@
 
 @interface SHPlayView ()
 <
-    VLCMediaPlayerDelegate
+    VLCMediaPlayerDelegate,
+    SHPlayControlViewDelegate
 >
 
 @property (nonatomic, strong) VLCMediaPlayer *player;
@@ -60,6 +61,7 @@
 - (SHPlayerControlView *)controlView {
     if (!_controlView) {
         _controlView = [[SHPlayerControlView alloc] init];
+        _controlView.delegate = self;
     }
     return _controlView;
 }
