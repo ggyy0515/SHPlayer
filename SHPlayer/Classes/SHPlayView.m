@@ -91,5 +91,9 @@
     [self bringSubviewToFront:self.controlView];
 }
 
+- (void)mediaPlayerTimeChanged:(NSNotification *)aNotification {
+    CGFloat sliderValue = self.player.time.value.floatValue / self.player.media.length.value.floatValue;
+    [self.controlView setCurrentTime:self.player.time.stringValue totalTime:self.player.media.length.stringValue sliderValue:sliderValue];
+}
 
 @end

@@ -120,7 +120,7 @@
     [self.currentTimeLabel mas_makeConstraints:^(MASConstraintMaker *make) {
         make.leading.equalTo(self.playBtn.mas_trailing).offset(-3);
         make.centerY.equalTo(self.playBtn.mas_centerY);
-        make.width.mas_equalTo(43);
+        make.width.mas_equalTo(50);
     }];
     
     [self.shrinkBtn mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -132,7 +132,7 @@
     [self.totalTimeLabel mas_makeConstraints:^(MASConstraintMaker *make) {
         make.trailing.equalTo(self.shrinkBtn.mas_leading).offset(3);
         make.centerY.equalTo(self.playBtn.mas_centerY);
-        make.width.mas_equalTo(43);
+        make.width.mas_equalTo(50);
     }];
     
     [self.slider mas_makeConstraints:^(MASConstraintMaker *make) {
