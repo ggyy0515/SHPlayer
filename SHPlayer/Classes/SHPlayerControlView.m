@@ -45,6 +45,10 @@
  变成竖直
  */
 @property (nonatomic, strong) UIButton *beupBtn;
+/**
+ 是否正在拖拽进度条
+ */
+@property (nonatomic, assign) BOOL isDragged;
 
 @property (nonatomic, strong) UIImageView *topImageView;
 @property (nonatomic, strong) UIImageView *bottomImageView;
@@ -64,6 +68,7 @@
 
 - (void)createUI {
     self.backgroundColor = [UIColorFromHexString(@"#000000") colorWithAlphaComponent:0.3];
+    _isDragged = NO;
     
     [self addSubview:self.topImageView];
     [self addSubview:self.bottomImageView];
@@ -274,12 +279,33 @@
     return _bottomImageView;
 }
 
+
+
+#pragma mark - Private
+
+// slider开始滑动
+- (void)progressSliderTouchBegan:(ASValueTrackingSlider *)slider {
+    _isDragged = YES;
+}
+
+// slider滑动中
+- (void)progressSliderValueChanged:(ASValueTrackingSlider *)slider {
+    _isDragged = YES;
+}
+
+// slider结束滑动
+- (void)progressSliderTouchEnded:(ASValueTrackingSlider *)slider {
+    _isDragged = NO;
+}
+
 #pragma mark - Public
 
 - (void)setCurrentTime:(NSString *)currentTime totalTime:(NSString *)totalTime sliderValue:(CGFloat)sliderValue {
     self.currentTimeLabel.text = currentTime;
     self.totalTimeLabel.text = totalTime;
-    self.slider.value = sliderValue;
+    if (!self.slider.isFirstResponder) {
+        self.slider.value = sliderValue;
+    }
 }
 
 @end
