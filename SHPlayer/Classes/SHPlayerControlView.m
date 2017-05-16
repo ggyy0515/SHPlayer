@@ -274,4 +274,12 @@
     return _bottomImageView;
 }
 
+#pragma mark - Public
+
+- (void)setCurrentTime:(NSString *)currentTime totalTime:(NSString *)totalTime sliderValue:(CGFloat)sliderValue {
+    self.currentTimeLabel.text = currentTime;
+    self.totalTimeLabel.text = totalTime;
+    self.slider.value = sliderValue;
+}
+
 @end

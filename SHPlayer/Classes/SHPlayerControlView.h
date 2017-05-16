@@ -8,6 +8,9 @@
 
 #import <UIKit/UIKit.h>
 
+
 @interface SHPlayerControlView : UIView
+
+- (void)setCurrentTime:(NSString *)currentTime totalTime:(NSString *)totalTime sliderValue:(CGFloat)sliderValue;
 
 @end
