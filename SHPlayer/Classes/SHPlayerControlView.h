@@ -21,4 +21,8 @@
 
 - (void)setCurrentTime:(NSString *)currentTime totalTime:(NSString *)totalTime sliderValue:(CGFloat)sliderValue;
 
+- (void)show;
+
+- (void)hide;
+
 @end

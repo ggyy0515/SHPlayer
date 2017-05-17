@@ -71,6 +71,14 @@
 - (void)setupPlayeView {
     self.backgroundColor = UIColorFromHexString(@"#000000");
     [self addSubview:self.controlView];
+    self.userInteractionEnabled = YES;
+    @weakify(self)
+    [self addTapActionWithBlock:^(UIGestureRecognizer *gestureRecoginzer) {
+        @strongify(self)
+        //gestureRecoginzer.cancelsTouchesInView = NO;
+        [self bringSubviewToFront:self.controlView];
+        [self.controlView show];
+    }];
 }
 
 - (void)setupPlayer {

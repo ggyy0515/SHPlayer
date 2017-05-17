@@ -67,6 +67,8 @@
 }
 
 - (void)createUI {
+    self.hidden = YES;
+    self.userInteractionEnabled = YES;
     self.backgroundColor = [UIColorFromHexString(@"#000000") colorWithAlphaComponent:0.3];
     _isDragged = NO;
     
@@ -84,6 +86,13 @@
     [self.bottomImageView addSubview:self.shrinkBtn];
     
     [self addLayout];
+    
+    @weakify(self)
+    [self addTapActionWithBlock:^(UIGestureRecognizer *gestureRecoginzer) {
+        //gestureRecoginzer.cancelsTouchesInView = NO;
+        @strongify(self)
+        [self hide];
+    }];
 }
 
 - (void)addLayout {
@@ -309,6 +318,26 @@
     if (!_isDragged) {
         self.slider.value = sliderValue;
     }
+}
+
+- (void)show {
+    self.hidden = NO;
+    [UIView animateWithDuration:0.35f
+                     animations:^{
+                         self.alpha = 1.f;
+    }
+                     completion:^(BOOL finished) {
+        
+    }];
+}
+
+- (void)hide {
+    [UIView animateWithDuration:0.35f animations:^{
+        self.alpha = 0.f;
+    }
+                     completion:^(BOOL finished) {
+                         self.hidden = YES;
+                     }];
 }
 
 @end
