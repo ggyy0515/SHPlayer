@@ -12,6 +12,9 @@
 #import "MMMaterialDesignSpinner.h"
 
 @interface SHPlayerControlView ()
+<
+    UIGestureRecognizerDelegate
+>
 
 /**
  标题
@@ -89,7 +92,9 @@
     
     @weakify(self)
     [self addTapActionWithBlock:^(UIGestureRecognizer *gestureRecoginzer) {
-        //gestureRecoginzer.cancelsTouchesInView = NO;
+//        UITapGestureRecognizer *tap = (UITapGestureRecognizer *)gestureRecoginzer;
+//        tap.numberOfTouchesRequired = 1;
+//        tap.numberOfTapsRequired = 1;
         @strongify(self)
         [self hide];
     }];
@@ -263,16 +268,29 @@
         [_slider addTarget:self action:@selector(progressSliderValueChanged:) forControlEvents:UIControlEventValueChanged];
         // slider结束滑动事件
         [_slider addTarget:self action:@selector(progressSliderTouchEnded:) forControlEvents:UIControlEventTouchUpInside | UIControlEventTouchCancel | UIControlEventTouchUpOutside];
-//
+        
+//        [_slider addTapActionWithBlock:^(UIGestureRecognizer *gestureRecoginzer) {
+//            [gestureRecoginzer setDelaysTouchesBegan:YES];
+//            [gestureRecoginzer setDelaysTouchesEnded:YES];
+//            NSLog(@"tap slider");
+//        }];
+//        [_slider addPanActionWithBlock:^(UIGestureRecognizer *gestureRecoginzer) {
+//            [gestureRecoginzer setDelaysTouchesBegan:YES];
+//            [gestureRecoginzer setDelaysTouchesEnded:YES];
+//            NSLog(@"pan slider");
+//        }];
+
 //        UITapGestureRecognizer *sliderTap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tapSliderAction:)];
+//        sliderTap.cancelsTouchesInView = NO;
 //        [_slider addGestureRecognizer:sliderTap];
 //        
+//        
 //        UIPanGestureRecognizer *panRecognizer = [[UIPanGestureRecognizer alloc]initWithTarget:self action:@selector(panRecognizer:)];
-//        panRecognizer.delegate = self;
-//        [panRecognizer setMaximumNumberOfTouches:1];
-//        [panRecognizer setDelaysTouchesBegan:YES];
-//        [panRecognizer setDelaysTouchesEnded:YES];
-//        [panRecognizer setCancelsTouchesInView:YES];
+////        panRecognizer.delegate = self;
+////        [panRecognizer setMaximumNumberOfTouches:1];
+////        [panRecognizer setDelaysTouchesBegan:YES];
+////        [panRecognizer setDelaysTouchesEnded:YES];
+//        [panRecognizer setCancelsTouchesInView:NO];
 //        [_slider addGestureRecognizer:panRecognizer];
     }
     return _slider;
@@ -308,6 +326,14 @@
         [_delegate playControlViewDidChangeSliderValue:slider.value];
     }
     _isDragged = NO;
+}
+
+- (void)tapSliderAction:(UITapGestureRecognizer *)tap {
+    
+}
+
+- (void)panRecognizer:(UIPanGestureRecognizer *)pan {
+
 }
 
 #pragma mark - Public

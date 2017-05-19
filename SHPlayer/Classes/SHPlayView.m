@@ -75,7 +75,6 @@
     @weakify(self)
     [self addTapActionWithBlock:^(UIGestureRecognizer *gestureRecoginzer) {
         @strongify(self)
-        //gestureRecoginzer.cancelsTouchesInView = NO;
         [self bringSubviewToFront:self.controlView];
         [self.controlView show];
     }];
