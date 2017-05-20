@@ -176,8 +176,13 @@
         _playBtn = [UIButton new];
         [_playBtn setImage:SHPlayerImage(@"SHPlayer_play") forState:UIControlStateNormal];
         [_playBtn setImage:SHPlayerImage(@"SHPlayer_pause") forState:UIControlStateSelected];
+        @weakify(self)
         [_playBtn handleControlEvent:UIControlEventTouchUpInside withBlock:^(UIButton *sender) {
-            
+            @strongify(self)
+            sender.selected = !sender.selected;
+            if (IS_NORMAL_RESPONDDELEGATE_FUNC(self.delegate, @selector(playControlViewDidClickPlayBtn:))) {
+                [self.delegate playControlViewDidClickPlayBtn:sender];
+            }
         }];
     }
     return _playBtn;

@@ -12,6 +12,8 @@
 
 - (void)playControlViewDidChangeSliderValue:(CGFloat)sliderValue;
 
+- (void)playControlViewDidClickPlayBtn:(UIButton *)playBtn;
+
 @end
 
 

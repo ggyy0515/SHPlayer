@@ -107,10 +107,20 @@
 
 #pragma mark - SHPlayControlViewDelegate
 
--(void)playControlViewDidChangeSliderValue:(CGFloat)sliderValue {
+- (void)playControlViewDidChangeSliderValue:(CGFloat)sliderValue {
     int time = self.player.media.length.intValue * sliderValue;
     VLCTime *targetTime = [VLCTime timeWithInt:time];
     [self.player setTime:targetTime];
+}
+
+- (void)playControlViewDidClickPlayBtn:(UIButton *)playBtn {
+    if (playBtn.selected) {
+        //暂停播放
+        [self.player pause];
+    } else {
+        //开始播放
+        [self.player play];
+    }
 }
 
 @end
