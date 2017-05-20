@@ -280,18 +280,18 @@
 //            NSLog(@"pan slider");
 //        }];
 
-//        UITapGestureRecognizer *sliderTap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tapSliderAction:)];
-//        sliderTap.cancelsTouchesInView = NO;
-//        [_slider addGestureRecognizer:sliderTap];
-//        
-//        
-//        UIPanGestureRecognizer *panRecognizer = [[UIPanGestureRecognizer alloc]initWithTarget:self action:@selector(panRecognizer:)];
-////        panRecognizer.delegate = self;
-////        [panRecognizer setMaximumNumberOfTouches:1];
-////        [panRecognizer setDelaysTouchesBegan:YES];
-////        [panRecognizer setDelaysTouchesEnded:YES];
-//        [panRecognizer setCancelsTouchesInView:NO];
-//        [_slider addGestureRecognizer:panRecognizer];
+        UITapGestureRecognizer *sliderTap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tapSliderAction:)];
+        sliderTap.cancelsTouchesInView = NO;
+        [_slider addGestureRecognizer:sliderTap];
+        
+        
+        UIPanGestureRecognizer *panRecognizer = [[UIPanGestureRecognizer alloc]initWithTarget:self action:@selector(panRecognizer:)];
+//        panRecognizer.delegate = self;
+//        [panRecognizer setMaximumNumberOfTouches:1];
+//        [panRecognizer setDelaysTouchesBegan:YES];
+//        [panRecognizer setDelaysTouchesEnded:YES];
+        [panRecognizer setCancelsTouchesInView:NO];
+        [_slider addGestureRecognizer:panRecognizer];
     }
     return _slider;
 }
@@ -329,11 +329,11 @@
 }
 
 - (void)tapSliderAction:(UITapGestureRecognizer *)tap {
-    
+    //点击进度条更改进度
 }
 
 - (void)panRecognizer:(UIPanGestureRecognizer *)pan {
-
+    //不做操作，手势只为解决冲突
 }
 
 #pragma mark - Public
