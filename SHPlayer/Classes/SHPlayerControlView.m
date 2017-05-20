@@ -92,9 +92,6 @@
     
     @weakify(self)
     [self addTapActionWithBlock:^(UIGestureRecognizer *gestureRecoginzer) {
-//        UITapGestureRecognizer *tap = (UITapGestureRecognizer *)gestureRecoginzer;
-//        tap.numberOfTouchesRequired = 1;
-//        tap.numberOfTapsRequired = 1;
         @strongify(self)
         [self hide];
     }];
@@ -268,17 +265,6 @@
         [_slider addTarget:self action:@selector(progressSliderValueChanged:) forControlEvents:UIControlEventValueChanged];
         // slider结束滑动事件
         [_slider addTarget:self action:@selector(progressSliderTouchEnded:) forControlEvents:UIControlEventTouchUpInside | UIControlEventTouchCancel | UIControlEventTouchUpOutside];
-        
-//        [_slider addTapActionWithBlock:^(UIGestureRecognizer *gestureRecoginzer) {
-//            [gestureRecoginzer setDelaysTouchesBegan:YES];
-//            [gestureRecoginzer setDelaysTouchesEnded:YES];
-//            NSLog(@"tap slider");
-//        }];
-//        [_slider addPanActionWithBlock:^(UIGestureRecognizer *gestureRecoginzer) {
-//            [gestureRecoginzer setDelaysTouchesBegan:YES];
-//            [gestureRecoginzer setDelaysTouchesEnded:YES];
-//            NSLog(@"pan slider");
-//        }];
 
         UITapGestureRecognizer *sliderTap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tapSliderAction:)];
         sliderTap.cancelsTouchesInView = NO;
@@ -286,10 +272,6 @@
         
         
         UIPanGestureRecognizer *panRecognizer = [[UIPanGestureRecognizer alloc]initWithTarget:self action:@selector(panRecognizer:)];
-//        panRecognizer.delegate = self;
-//        [panRecognizer setMaximumNumberOfTouches:1];
-//        [panRecognizer setDelaysTouchesBegan:YES];
-//        [panRecognizer setDelaysTouchesEnded:YES];
         [panRecognizer setCancelsTouchesInView:NO];
         [_slider addGestureRecognizer:panRecognizer];
     }
