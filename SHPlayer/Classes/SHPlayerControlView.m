@@ -330,6 +330,16 @@
 
 - (void)tapSliderAction:(UITapGestureRecognizer *)tap {
     //点击进度条更改进度
+    [self layoutIfNeeded];
+    if ([tap.view isKindOfClass:[ASValueTrackingSlider class]]) {
+        CGPoint point = [tap locationInView:_slider];
+        CGFloat length = _slider.frame.size.width;
+        CGFloat value = point.x / length;
+        _slider.value = value;
+        if (IS_NORMAL_RESPONDDELEGATE_FUNC(_delegate, @selector(playControlViewDidChangeSliderValue:))) {
+            [_delegate playControlViewDidChangeSliderValue:value];
+        }
+    }
 }
 
 - (void)panRecognizer:(UIPanGestureRecognizer *)pan {
