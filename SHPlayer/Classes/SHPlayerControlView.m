@@ -176,6 +176,7 @@
         _playBtn = [UIButton new];
         [_playBtn setImage:SHPlayerImage(@"SHPlayer_play") forState:UIControlStateNormal];
         [_playBtn setImage:SHPlayerImage(@"SHPlayer_pause") forState:UIControlStateSelected];
+        _playBtn.selected = YES;
         @weakify(self)
         [_playBtn handleControlEvent:UIControlEventTouchUpInside withBlock:^(UIButton *sender) {
             @strongify(self)

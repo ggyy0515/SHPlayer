@@ -115,11 +115,11 @@
 
 - (void)playControlViewDidClickPlayBtn:(UIButton *)playBtn {
     if (playBtn.selected) {
-        //暂停播放
-        [self.player pause];
-    } else {
         //开始播放
         [self.player play];
+    } else {
+        //暂停播放
+        [self.player pause];
     }
 }
 
