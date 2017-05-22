@@ -114,12 +114,20 @@
 }
 
 - (void)playControlViewDidClickPlayBtn:(UIButton *)playBtn {
-    if (playBtn.selected) {
+    if (playBtn.isSelected) {
         //开始播放
         [self.player play];
     } else {
         //暂停播放
         [self.player pause];
+    }
+}
+
+- (void)playControlViewDidClickShrinkBtn:(UIButton *)shrinkBtn {
+    if (shrinkBtn.isSelected) {
+        //进入全屏
+    } else {
+        //退出全屏
     }
 }
 

@@ -235,8 +235,13 @@
         _shrinkBtn = [UIButton new];
         [_shrinkBtn setImage:SHPlayerImage(@"SHPlayer_fullscreen") forState:UIControlStateNormal];
         [_shrinkBtn setImage:SHPlayerImage(@"SHPlayer_shrinkscreen") forState:UIControlStateSelected];
+        @weakify(self)
         [_shrinkBtn handleControlEvent:UIControlEventTouchUpInside withBlock:^(UIButton *sender) {
-            
+            @strongify(self)
+            sender.selected = !sender.selected;
+            if (IS_NORMAL_RESPONDDELEGATE_FUNC(self.delegate, @selector(playControlViewDidClickShrinkBtn:))) {
+                [self.delegate playControlViewDidClickShrinkBtn:sender];
+            }
         }];
     }
     return _shrinkBtn;

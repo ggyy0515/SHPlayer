@@ -14,6 +14,8 @@
 
 - (void)playControlViewDidClickPlayBtn:(UIButton *)playBtn;
 
+- (void)playControlViewDidClickShrinkBtn:(UIButton *)shrinkBtn;
+
 @end
 
 
