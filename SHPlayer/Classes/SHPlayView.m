@@ -20,7 +20,8 @@
 
 @property (nonatomic, strong) VLCMediaPlayer *player;
 @property (nonatomic, strong) SHPlayerControlView *controlView;
-
+@property (nonatomic, strong) UIView *exSuperView;
+@property (nonatomic, assign) CGRect exFrame;
 @end
 
 
@@ -84,6 +85,31 @@
     [self.player setDrawable:self];
 }
 
+/**
+ *    强制横屏
+ *
+ *    @param orientation 横屏方向
+ */
+- (void)forceChangeOrientation:(UIInterfaceOrientation)orientation
+{
+    [self.superview layoutIfNeeded];
+    self.exFrame = self.frame;
+    self.exSuperView = self.superview;
+    [[UIApplication sharedApplication].keyWindow addSubview:self];
+    [self mas_remakeConstraints:^(MASConstraintMaker *make) {
+        make.edges.mas_equalTo(self.superview).insets(UIEdgeInsetsZero);
+    }];
+    int val = orientation;
+    if ([[UIDevice currentDevice] respondsToSelector:@selector(setOrientation:)]) {
+        SEL selector = NSSelectorFromString(@"setOrientation:");
+        NSInvocation *invocation = [NSInvocation invocationWithMethodSignature:[UIDevice instanceMethodSignatureForSelector:selector]];
+        [invocation setSelector:selector];
+        [invocation setTarget:[UIDevice currentDevice]];
+        [invocation setArgument:&val atIndex:2];
+        [invocation invoke];
+    }
+}
+
 #pragma mark - Public
 
 - (void)playWithUrl:(NSURL *)url {
@@ -126,6 +152,7 @@
 - (void)playControlViewDidClickShrinkBtn:(UIButton *)shrinkBtn {
     if (shrinkBtn.isSelected) {
         //进入全屏
+        [self forceChangeOrientation:UIInterfaceOrientationLandscapeRight];
     } else {
         //退出全屏
     }
