@@ -85,20 +85,31 @@
     [self.player setDrawable:self];
 }
 
+
 /**
- *    强制横屏
- *
- *    @param orientation 横屏方向
+ 强制改变屏幕方向
+
+ @param orientation 方向
  */
 - (void)forceChangeOrientation:(UIInterfaceOrientation)orientation
 {
-    [self.superview layoutIfNeeded];
-    self.exFrame = self.frame;
-    self.exSuperView = self.superview;
-    [[UIApplication sharedApplication].keyWindow addSubview:self];
-    [self mas_remakeConstraints:^(MASConstraintMaker *make) {
-        make.edges.mas_equalTo(self.superview).insets(UIEdgeInsetsZero);
-    }];
+    if (orientation == UIDeviceOrientationLandscapeRight || orientation == UIDeviceOrientationLandscapeLeft) {
+        [self.superview layoutIfNeeded];
+        self.exFrame = self.frame;
+        self.exSuperView = self.superview;
+        [[UIApplication sharedApplication].keyWindow addSubview:self];
+        [self mas_remakeConstraints:^(MASConstraintMaker *make) {
+            make.edges.mas_equalTo(self.superview).insets(UIEdgeInsetsZero);
+        }];
+    } else {
+        [self.exSuperView addSubview:self];
+        [self mas_remakeConstraints:^(MASConstraintMaker *make) {
+            make.size.mas_equalTo(self.exFrame.size);
+            make.left.mas_equalTo(self.exFrame.origin.x);
+            make.top.mas_equalTo(self.exFrame.origin.y);
+        }];
+        self.frame = self.exFrame;
+    }
     int val = orientation;
     if ([[UIDevice currentDevice] respondsToSelector:@selector(setOrientation:)]) {
         SEL selector = NSSelectorFromString(@"setOrientation:");
@@ -155,7 +166,12 @@
         [self forceChangeOrientation:UIInterfaceOrientationLandscapeRight];
     } else {
         //退出全屏
+        [self forceChangeOrientation:UIInterfaceOrientationPortrait];
     }
+}
+
+- (void)playControlViewShouldChangeToPortrait {
+    [self forceChangeOrientation:UIInterfaceOrientationPortrait];
 }
 
 @end

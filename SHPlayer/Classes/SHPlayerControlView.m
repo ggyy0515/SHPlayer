@@ -239,6 +239,13 @@
         [_shrinkBtn handleControlEvent:UIControlEventTouchUpInside withBlock:^(UIButton *sender) {
             @strongify(self)
             sender.selected = !sender.selected;
+            if (self.shrinkBtn.isSelected) {
+                self.backBtn.hidden = YES;
+                self.beupBtn.hidden = NO;
+            } else {
+                self.backBtn.hidden = NO;
+                self.beupBtn.hidden = YES;
+            }
             if (IS_NORMAL_RESPONDDELEGATE_FUNC(self.delegate, @selector(playControlViewDidClickShrinkBtn:))) {
                 [self.delegate playControlViewDidClickShrinkBtn:sender];
             }
@@ -251,8 +258,15 @@
     if (!_beupBtn) {
         _beupBtn = [UIButton new];
         [_beupBtn setImage:SHPlayerImage(@"SHPlayer_back_full") forState:UIControlStateNormal];
+        _beupBtn.hidden = YES;
+        @weakify(self)
         [_beupBtn handleControlEvent:UIControlEventTouchUpInside withBlock:^(UIButton *sender) {
-            
+            @strongify(self)
+            self.beupBtn.hidden = YES;
+            self.backBtn.hidden = NO;
+            if (IS_NORMAL_RESPONDDELEGATE_FUNC(self.delegate, @selector(playControlViewShouldChangeToPortrait))) {
+                [self.delegate playControlViewShouldChangeToPortrait];
+            }
         }];
     }
     return _beupBtn;

@@ -16,6 +16,8 @@
 
 - (void)playControlViewDidClickShrinkBtn:(UIButton *)shrinkBtn;
 
+- (void)playControlViewShouldChangeToPortrait;
+
 @end
 
 
