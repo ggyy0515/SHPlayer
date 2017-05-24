@@ -264,6 +264,7 @@
             @strongify(self)
             self.beupBtn.hidden = YES;
             self.backBtn.hidden = NO;
+            self.shrinkBtn.selected = !self.shrinkBtn.isSelected;
             if (IS_NORMAL_RESPONDDELEGATE_FUNC(self.delegate, @selector(playControlViewShouldChangeToPortrait))) {
                 [self.delegate playControlViewShouldChangeToPortrait];
             }
