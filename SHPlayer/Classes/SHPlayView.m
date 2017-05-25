@@ -22,6 +22,8 @@
 @property (nonatomic, strong) SHPlayerControlView *controlView;
 @property (nonatomic, strong) UIView *exSuperView;
 @property (nonatomic, assign) CGRect exFrame;
+@property (nonatomic, strong) UITapGestureRecognizer *singleTap;
+@property (nonatomic, strong) UITapGestureRecognizer *doubleTap;
 @end
 
 
@@ -49,6 +51,8 @@
     }];
 }
 
+
+
 #pragma mark - Lazy Loading
 
 - (VLCMediaPlayer *)player {
@@ -67,18 +71,36 @@
     return _controlView;
 }
 
+- (UITapGestureRecognizer *)singleTap {
+    if (!_singleTap) {
+        _singleTap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(singleTapAction:)];
+        _doubleTap.numberOfTapsRequired = 1;
+        _doubleTap.numberOfTouchesRequired = 1;
+    }
+    return _singleTap;
+}
+
+- (UITapGestureRecognizer *)doubleTap {
+    if (!_doubleTap) {
+        _doubleTap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(doubleTapAction:)];
+        _doubleTap.numberOfTapsRequired = 2;
+        _doubleTap.numberOfTouchesRequired = 1;
+    }
+    return _doubleTap;
+}
+
 #pragma mark - Private
 
 - (void)setupPlayeView {
     self.backgroundColor = UIColorFromHexString(@"#000000");
     [self addSubview:self.controlView];
     self.userInteractionEnabled = YES;
-    @weakify(self)
-    [self addTapActionWithBlock:^(UIGestureRecognizer *gestureRecoginzer) {
-        @strongify(self)
-        [self bringSubviewToFront:self.controlView];
-        [self.controlView show];
-    }];
+    
+    [self addGestureRecognizer:self.singleTap];
+    [self addGestureRecognizer:self.doubleTap];
+    [self.singleTap setDelaysTouchesBegan:YES];
+    [self.doubleTap setDelaysTouchesBegan:YES];
+    [self.singleTap requireGestureRecognizerToFail:self.doubleTap];
 }
 
 - (void)setupPlayer {
@@ -118,6 +140,29 @@
         [invocation setTarget:[UIDevice currentDevice]];
         [invocation setArgument:&val atIndex:2];
         [invocation invoke];
+    }
+}
+
+- (void)singleTapAction:(UITapGestureRecognizer *)sender {
+    [self bringSubviewToFront:self.controlView];
+    [self.controlView show];
+}
+
+- (void)doubleTapAction:( UITapGestureRecognizer * _Nullable )sender {
+    switch (self.player.state) {
+        case VLCMediaPlayerStatePlaying:
+        case VLCMediaPlayerStateBuffering:
+        {
+            [self.player pause];
+        }
+            break;
+        case VLCMediaPlayerStatePaused:
+        {
+            [self.player play];
+        }
+            break;
+        default:
+            break;
     }
 }
 
@@ -172,6 +217,10 @@
 
 - (void)playControlViewShouldChangeToPortrait {
     [self forceChangeOrientation:UIInterfaceOrientationPortrait];
+}
+
+- (void)playControlViewDoubleTapInside {
+    [self doubleTapAction:nil];
 }
 
 @end

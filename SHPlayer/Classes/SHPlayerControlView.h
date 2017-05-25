@@ -10,6 +10,8 @@
 
 @protocol SHPlayControlViewDelegate <NSObject>
 
+@required
+
 - (void)playControlViewDidChangeSliderValue:(CGFloat)sliderValue;
 
 - (void)playControlViewDidClickPlayBtn:(UIButton *)playBtn;
@@ -17,6 +19,8 @@
 - (void)playControlViewDidClickShrinkBtn:(UIButton *)shrinkBtn;
 
 - (void)playControlViewShouldChangeToPortrait;
+
+- (void)playControlViewDoubleTapInside;
 
 @end
 

@@ -10,6 +10,7 @@
 #import "SHPlayer.h"
 #import "ASValueTrackingSlider.h"
 #import "MMMaterialDesignSpinner.h"
+#import <MobileVLCKit/MobileVLCKit.h>
 
 @interface SHPlayerControlView ()
 <
@@ -52,6 +53,8 @@
  是否正在拖拽进度条
  */
 @property (nonatomic, assign) BOOL isDragged;
+@property (nonatomic, strong) UITapGestureRecognizer *singleTap;
+@property (nonatomic, strong) UITapGestureRecognizer *doubleTap;
 
 @property (nonatomic, strong) UIImageView *topImageView;
 @property (nonatomic, strong) UIImageView *bottomImageView;
@@ -65,8 +68,13 @@
 - (instancetype)init {
     if (self = [super init]) {
         [self createUI];
+        ADD_OBSERVER_NOTIFICATION(self, @selector(playStateChanged:), VLCMediaPlayerStateChanged, nil);
     }
     return self;
+}
+
+- (void)dealloc {
+    REMOVE_NOTIFICATION(self, VLCMediaPlayerStateChanged, nil);
 }
 
 - (void)createUI {
@@ -90,11 +98,11 @@
     
     [self addLayout];
     
-    @weakify(self)
-    [self addTapActionWithBlock:^(UIGestureRecognizer *gestureRecoginzer) {
-        @strongify(self)
-        [self hide];
-    }];
+    [self addGestureRecognizer:self.singleTap];
+    [self addGestureRecognizer:self.doubleTap];
+    [self.singleTap setDelaysTouchesBegan:YES];
+    [self.doubleTap setDelaysTouchesBegan:YES];
+    [self.singleTap requireGestureRecognizerToFail:self.doubleTap];
 }
 
 - (void)addLayout {
@@ -314,7 +322,23 @@
     return _bottomImageView;
 }
 
+- (UITapGestureRecognizer *)singleTap {
+    if (!_singleTap) {
+        _singleTap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(hide)];
+        _singleTap.numberOfTouchesRequired = 1;
+        _singleTap.numberOfTapsRequired = 1;
+    }
+    return _singleTap;
+}
 
+- (UITapGestureRecognizer *)doubleTap {
+    if (!_doubleTap) {
+        _doubleTap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(doubleTapInControlViewWithTap:)];
+        _doubleTap.numberOfTapsRequired = 2;
+        _doubleTap.numberOfTouchesRequired = 1;
+    }
+    return _doubleTap;
+}
 
 #pragma mark - Private
 
@@ -350,8 +374,34 @@
     }
 }
 
+- (void)playStateChanged:(NSNotification *)notification {
+    VLCMediaPlayer *player = notification.object;
+    switch (player.state) {
+        case VLCMediaPlayerStatePaused:
+        {
+            self.playBtn.selected = YES;
+        }
+            break;
+        case VLCMediaPlayerStatePlaying:
+        case VLCMediaPlayerStateBuffering:
+        {
+            self.playBtn.selected = NO;
+        }
+            break;
+            
+        default:
+            break;
+    }
+}
+
 - (void)panRecognizer:(UIPanGestureRecognizer *)pan {
     //不做操作，手势只为解决冲突
+}
+
+- (void)doubleTapInControlViewWithTap:(UITapGestureRecognizer *)sender {
+    if (IS_NORMAL_RESPONDDELEGATE_FUNC(self, @selector(playControlViewDoubleTapInside))) {
+        [_delegate playControlViewDoubleTapInside];
+    }
 }
 
 #pragma mark - Public
