@@ -399,7 +399,7 @@
 }
 
 - (void)doubleTapInControlViewWithTap:(UITapGestureRecognizer *)sender {
-    if (IS_NORMAL_RESPONDDELEGATE_FUNC(self, @selector(playControlViewDoubleTapInside))) {
+    if (IS_NORMAL_RESPONDDELEGATE_FUNC(_delegate, @selector(playControlViewDoubleTapInside))) {
         [_delegate playControlViewDoubleTapInside];
     }
 }
