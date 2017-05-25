@@ -8,7 +8,17 @@
 
 #import <UIKit/UIKit.h>
 
+@class SHPlayView;
+
+@protocol SHPlayViewDelegate <NSObject>
+
+- (void)didClickBackBtnInPlayView:(SHPlayView *)playView;
+
+@end
+
 @interface SHPlayView : UIView
+
+@property (nonatomic, weak) id <SHPlayViewDelegate> delegate;
 
 - (void)playWithUrl:(NSURL *)url;
 
