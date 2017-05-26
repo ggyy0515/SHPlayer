@@ -12,6 +12,18 @@
 #import <AVFoundation/AVFoundation.h>
 #import "SHPlayerControlView.h"
 
+
+/**
+ 滑动方向
+
+ - PanDirectionHorizon: 水平
+ - PanDirectionVertical: 竖直
+ */
+typedef NS_ENUM(NSInteger, PanDirection) {
+    PanDirectionHorizon,
+    PanDirectionVertical
+};
+
 @interface SHPlayView ()
 <
     VLCMediaPlayerDelegate,
@@ -24,6 +36,9 @@
 @property (nonatomic, assign) CGRect exFrame;
 @property (nonatomic, strong) UITapGestureRecognizer *singleTap;
 @property (nonatomic, strong) UITapGestureRecognizer *doubleTap;
+@property (nonatomic, strong) UIPanGestureRecognizer *pan;
+@property (nonatomic, assign) PanDirection panDirection;
+
 @end
 
 
@@ -89,6 +104,13 @@
     return _doubleTap;
 }
 
+- (UIPanGestureRecognizer *)pan {
+    if (!_pan) {
+        _pan = [[UIPanGestureRecognizer alloc] initWithTarget:self action:@selector(panAction:)];
+    }
+    return _pan;
+}
+
 #pragma mark - Private
 
 - (void)setupPlayeView {
@@ -96,11 +118,14 @@
     [self addSubview:self.controlView];
     self.userInteractionEnabled = YES;
     
+    //添加单机和双击事件
     [self addGestureRecognizer:self.singleTap];
     [self addGestureRecognizer:self.doubleTap];
     [self.singleTap setDelaysTouchesBegan:YES];
     [self.doubleTap setDelaysTouchesBegan:YES];
     [self.singleTap requireGestureRecognizerToFail:self.doubleTap];
+    //添加滑动事件
+    [self addGestureRecognizer:self.pan];
 }
 
 - (void)setupPlayer {
@@ -163,6 +188,52 @@
             [self.controlView setPlayBtnSelectedState:YES];
         }
             break;
+        default:
+            break;
+    }
+}
+
+- (void)panAction:(UIPanGestureRecognizer *)sender {
+    CGPoint locationPoint = [sender locationInView:self];
+    CGPoint veloctyPoint = [sender velocityInView:self];
+    switch (sender.state) {
+        case UIGestureRecognizerStateBegan://开始滑动
+        {
+            CGFloat x = fabs(veloctyPoint.x);
+            CGFloat y = fabs(veloctyPoint.y);
+            if (x > y) {
+                self.panDirection = PanDirectionHorizon;
+                NSLog(@"水平滑动开始");
+            } else if (x <y) {
+                self.panDirection = PanDirectionVertical;
+                NSLog(@"竖直滑动开始");
+                if (locationPoint.x > SCREENWIDTH / 2.f) {
+                    NSLog(@"控制音量");
+                } else {
+                    NSLog(@"控制亮度");
+                }
+            }
+        }
+            break;
+        case UIGestureRecognizerStateChanged://正在滑动
+        {
+            switch (self.panDirection) {
+                case PanDirectionHorizon://水平方向移动
+                {
+                    NSLog(@"水平滑动ing");
+                }
+                    break;
+                case PanDirectionVertical://竖直滑动
+                {
+                    NSLog(@"竖直滑动ing");
+                }
+                    break;
+                    
+                default:
+                    break;
+            }
+        }
+            
         default:
             break;
     }
