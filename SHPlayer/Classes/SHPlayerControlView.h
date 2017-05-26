@@ -22,8 +22,6 @@
 
 - (void)playControlViewDoubleTapInside;
 
-- (void)setPlayBtnSelectedState:(BOOL)isSelected;
-
 @end
 
 
@@ -36,5 +34,8 @@
 - (void)show;
 
 - (void)hide;
+
+- (void)setPlayBtnSelectedState:(BOOL)isSelected;
+
 
 @end

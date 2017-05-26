@@ -154,11 +154,13 @@
         case VLCMediaPlayerStateBuffering:
         {
             [self.player pause];
+            [self.controlView setPlayBtnSelectedState:NO];
         }
             break;
         case VLCMediaPlayerStatePaused:
         {
             [self.player play];
+            [self.controlView setPlayBtnSelectedState:YES];
         }
             break;
         default:
