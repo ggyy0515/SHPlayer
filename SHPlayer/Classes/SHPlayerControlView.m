@@ -10,12 +10,8 @@
 #import "SHPlayer.h"
 #import "ASValueTrackingSlider.h"
 #import "MMMaterialDesignSpinner.h"
-#import <MobileVLCKit/MobileVLCKit.h>
 
 @interface SHPlayerControlView ()
-<
-    UIGestureRecognizerDelegate
->
 
 /**
  标题
@@ -68,13 +64,11 @@
 - (instancetype)init {
     if (self = [super init]) {
         [self createUI];
-        ADD_OBSERVER_NOTIFICATION(self, @selector(playStateChanged:), VLCMediaPlayerStateChanged, nil);
     }
     return self;
 }
 
 - (void)dealloc {
-    REMOVE_NOTIFICATION(self, VLCMediaPlayerStateChanged, nil);
 }
 
 - (void)createUI {
@@ -374,26 +368,6 @@
     }
 }
 
-- (void)playStateChanged:(NSNotification *)notification {
-    VLCMediaPlayer *player = notification.object;
-    switch (player.state) {
-        case VLCMediaPlayerStatePaused:
-        {
-            self.playBtn.selected = YES;
-        }
-            break;
-        case VLCMediaPlayerStatePlaying:
-        case VLCMediaPlayerStateBuffering:
-        {
-            self.playBtn.selected = NO;
-        }
-            break;
-            
-        default:
-            break;
-    }
-}
-
 - (void)panRecognizer:(UIPanGestureRecognizer *)pan {
     //不做操作，手势只为解决冲突
 }
@@ -432,6 +406,10 @@
                      completion:^(BOOL finished) {
                          self.hidden = YES;
                      }];
+}
+
+- (void)setPlayBtnSelectedState:(BOOL)isSelected {
+    self.playBtn.selected = isSelected;
 }
 
 @end
