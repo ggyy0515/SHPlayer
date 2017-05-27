@@ -38,6 +38,11 @@ typedef NS_ENUM(NSInteger, PanDirection) {
 @property (nonatomic, strong) UITapGestureRecognizer *doubleTap;
 @property (nonatomic, strong) UIPanGestureRecognizer *pan;
 @property (nonatomic, assign) PanDirection panDirection;
+@property (nonatomic, assign) CGFloat sumTime;
+@property (nonatomic, strong) UIView *fastView;
+@property (nonatomic, strong) UIImageView *fastImageView;
+@property (nonatomic, strong) UILabel *fastTimeLabel;
+@property (nonatomic, strong) UIProgressView *fastProgressView;
 
 @end
 
@@ -48,7 +53,9 @@ typedef NS_ENUM(NSInteger, PanDirection) {
 
 - (instancetype)init {
     if (self = [super init]) {
-        
+        _sumTime = 0.f;
+        [self setupPlayeView];
+        [self addLayout];
     }
     return self;
 }
@@ -56,16 +63,7 @@ typedef NS_ENUM(NSInteger, PanDirection) {
 - (void)drawRect:(CGRect)rect {
     [super drawRect:rect];
     [self setupPlayer];
-    [self setupPlayeView];
-    [self addLayout];
 }
-
-- (void)addLayout {
-    [self.controlView mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.edges.mas_equalTo(self).insets(UIEdgeInsetsZero);
-    }];
-}
-
 
 
 #pragma mark - Lazy Loading
@@ -111,12 +109,54 @@ typedef NS_ENUM(NSInteger, PanDirection) {
     return _pan;
 }
 
+- (UIView *)fastView {
+    if (!_fastView) {
+        _fastView                     = [[UIView alloc] init];
+        _fastView.backgroundColor     = [UIColorFromHexString(@"#000000") colorWithAlphaComponent:0.8];
+        _fastView.layer.cornerRadius  = 4;
+        _fastView.layer.masksToBounds = YES;
+    }
+    return _fastView;
+}
+
+- (UIImageView *)fastImageView {
+    if (!_fastImageView) {
+        _fastImageView = [[UIImageView alloc] init];
+    }
+    return _fastImageView;
+}
+
+- (UILabel *)fastTimeLabel {
+    if (!_fastTimeLabel) {
+        _fastTimeLabel               = [[UILabel alloc] init];
+        _fastTimeLabel.textColor     = [UIColor whiteColor];
+        _fastTimeLabel.textAlignment = NSTextAlignmentCenter;
+        _fastTimeLabel.font          = [UIFont systemFontOfSize:14.0];
+    }
+    return _fastTimeLabel;
+}
+
+- (UIProgressView *)fastProgressView {
+    if (!_fastProgressView) {
+        _fastProgressView                   = [[UIProgressView alloc] init];
+        _fastProgressView.progressTintColor = [UIColor whiteColor];
+        _fastProgressView.trackTintColor    = [[UIColor lightGrayColor] colorWithAlphaComponent:0.4];
+    }
+    return _fastProgressView;
+}
+
 #pragma mark - Private
 
 - (void)setupPlayeView {
     self.backgroundColor = UIColorFromHexString(@"#000000");
     [self addSubview:self.controlView];
     self.userInteractionEnabled = YES;
+    
+    [self addSubview:self.fastView];
+    [self.fastView addSubview:self.fastImageView];
+    [self.fastView addSubview:self.fastTimeLabel];
+    [self.fastView addSubview:self.fastProgressView];
+    self.fastView.hidden = YES;
     
     //添加单机和双击事件
     [self addGestureRecognizer:self.singleTap];
@@ -131,6 +171,37 @@ typedef NS_ENUM(NSInteger, PanDirection) {
 - (void)setupPlayer {
     [self.player setDrawable:self];
 }
+
+- (void)addLayout {
+    [self.controlView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.edges.mas_equalTo(self).insets(UIEdgeInsetsZero);
+    }];
+    
+    [self.fastView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.width.mas_equalTo(125);
+        make.height.mas_equalTo(80);
+        make.center.equalTo(self);
+    }];
+    
+    [self.fastImageView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.width.mas_offset(32);
+        make.height.mas_offset(32);
+        make.top.mas_equalTo(5);
+        make.centerX.mas_equalTo(self.fastView.mas_centerX);
+    }];
+    
+    [self.fastTimeLabel mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.left.right.mas_equalTo(0);
+        make.top.mas_equalTo(self.fastImageView.mas_bottom).offset(2);
+    }];
+    
+    [self.fastProgressView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.left.mas_equalTo(12);
+        make.right.mas_equalTo(-12);
+        make.top.mas_equalTo(self.fastTimeLabel.mas_bottom).offset(10);
+    }];
+}
+
 
 
 /**
@@ -207,6 +278,7 @@ typedef NS_ENUM(NSInteger, PanDirection) {
             } else if (x <y) {
                 self.panDirection = PanDirectionVertical;
                 NSLog(@"竖直滑动开始");
+                NSLog(@"s--%lf", veloctyPoint.x);
                 if (locationPoint.x > SCREENWIDTH / 2.f) {
                     NSLog(@"控制音量");
                 } else {
@@ -221,6 +293,8 @@ typedef NS_ENUM(NSInteger, PanDirection) {
                 case PanDirectionHorizon://水平方向移动
                 {
                     NSLog(@"水平滑动ing");
+                    NSLog(@"i--%lf", veloctyPoint.x);
+                    [self horizonMoveWithValue:veloctyPoint.x];
                 }
                     break;
                 case PanDirectionVertical://竖直滑动
@@ -236,6 +310,23 @@ typedef NS_ENUM(NSInteger, PanDirection) {
             
         default:
             break;
+    }
+}
+
+- (void)horizonMoveWithValue:(CGFloat)value {
+    self.sumTime += value / 200.f;
+    CGFloat mediaLengh = self.player.media.length.value.doubleValue / 1000.f;
+    CGFloat currentTime = self.player.time.value.doubleValue / 1000.f;
+    if (self.sumTime > 0) {
+        if (self.sumTime > mediaLengh - currentTime) {
+            self.sumTime = mediaLengh - currentTime;
+        }
+    } else if (self.sumTime < 0) {
+        if (self.sumTime < (-currentTime)) {
+            self.sumTime = (-currentTime);
+        }
+    } else {
+        return;
     }
 }
 
