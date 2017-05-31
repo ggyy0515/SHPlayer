@@ -24,6 +24,11 @@ typedef NS_ENUM(NSInteger, PanDirection) {
     PanDirectionVertical
 };
 
+typedef NS_ENUM(NSInteger, PlayerPanStyle) {
+    PlayerPanStyleForward,
+    PlayerPanStyleBack
+};
+
 @interface SHPlayView ()
 <
     VLCMediaPlayerDelegate,
@@ -328,6 +333,10 @@ typedef NS_ENUM(NSInteger, PanDirection) {
     } else {
         return;
     }
+}
+
+- (void)playerHorizonPanedWithTime:(CGFloat)draggedTime playerPanStyle:(PlayerPanStyle)playerPanStyle hasPreview:(BOOL)hasPreview {
+    
 }
 
 #pragma mark - Public
