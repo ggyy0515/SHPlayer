@@ -335,7 +335,40 @@ typedef NS_ENUM(NSInteger, PlayerPanStyle) {
     }
 }
 
-- (void)playerHorizonPanedWithTime:(CGFloat)draggedTime playerPanStyle:(PlayerPanStyle)playerPanStyle hasPreview:(BOOL)hasPreview {
+- (void)playerHorizonPanedWithTime:(NSInteger)draggedTime playerPanStyle:(PlayerPanStyle)playerPanStyle hasPreview:(BOOL)preview {
+    // 拖拽的时长
+    NSInteger proMin = draggedTime / 60;//当前秒
+    NSInteger proSec = draggedTime % 60;//当前分钟
+    
+    //duration 总时长
+    NSInteger totalTime = self.player.media.length.intValue;
+    NSInteger durMin = totalTime / 60;//总秒
+    NSInteger durSec = totalTime % 60;//总分钟
+    
+    NSString *currentTimeStr = [NSString stringWithFormat:@"%02zd:%02zd", proMin, proSec];
+    NSString *totalTimeStr   = [NSString stringWithFormat:@"%02zd:%02zd", durMin, durSec];
+    CGFloat  draggedValue    = (CGFloat)draggedTime/(CGFloat)totalTime;
+    NSString *timeStr        = [NSString stringWithFormat:@"%@ / %@", currentTimeStr, totalTimeStr];
+    
+    // 显示、隐藏预览窗
+    self.videoSlider.popUpView.hidden = !preview;
+    // 更新slider的值
+    self.videoSlider.value            = draggedValue;
+    // 更新bottomProgressView的值
+    self.bottomProgressView.progress  = draggedValue;
+    // 更新当前时间
+    self.currentTimeLabel.text        = currentTimeStr;
+    // 正在拖动控制播放进度
+    self.dragged = YES;
+    
+    if (forawrd) {
+        self.fastImageView.image = ZFPlayerImage(@"ZFPlayer_fast_forward");
+    } else {
+        self.fastImageView.image = ZFPlayerImage(@"ZFPlayer_fast_backward");
+    }
+    self.fastView.hidden           = preview;
+    self.fastTimeLabel.text        = timeStr;
+    self.fastProgressView.progress = draggedValue;
     
 }
 
