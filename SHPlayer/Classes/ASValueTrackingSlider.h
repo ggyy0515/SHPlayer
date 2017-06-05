@@ -7,6 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "ASValuePopUpView.h"
+
 @protocol ASValueTrackingSliderDelegate;
 @protocol ASValueTrackingSliderDataSource;
 
@@ -16,6 +18,8 @@
 - (void)showPopUpViewAnimated:(BOOL)animated;
 // the popUpView will not hide again until you call 'hidePopUpViewAnimated:'
 - (void)hidePopUpViewAnimated:(BOOL)animated;
+
+@property (strong, nonatomic) ASValuePopUpView *popUpView;
 
 @property (strong, nonatomic) UIColor *textColor;
 

@@ -7,10 +7,8 @@
 //
 
 #import "ASValueTrackingSlider.h"
-#import "ASValuePopUpView.h"
 
 @interface ASValueTrackingSlider() <ASValuePopUpViewDelegate>
-@property (strong, nonatomic) ASValuePopUpView *popUpView;
 @property (nonatomic) BOOL popUpViewAlwaysOn; // default is NO
 @end
 

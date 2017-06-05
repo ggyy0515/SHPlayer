@@ -34,10 +34,6 @@
  */
 @property (nonatomic, strong) UILabel *currentTimeLabel;
 /**
- 滑块
- */
-@property (nonatomic, strong) ASValueTrackingSlider *slider;
-/**
  缩放按钮
  */
 @property (nonatomic, strong) UIButton *shrinkBtn;

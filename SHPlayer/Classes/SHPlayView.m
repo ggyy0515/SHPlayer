@@ -6,11 +6,13 @@
 //  Copyright © 2017年 Tristan. All rights reserved.
 //
 
+#import "SHPlayer.h"
 #import "SHPlayView.h"
 #import <MobileVLCKit/MobileVLCKit.h>
 #import <MediaPlayer/MediaPlayer.h>
 #import <AVFoundation/AVFoundation.h>
 #import "SHPlayerControlView.h"
+#import "ASValueTrackingSlider.h"
 
 
 /**
@@ -351,20 +353,19 @@ typedef NS_ENUM(NSInteger, PlayerPanStyle) {
     NSString *timeStr        = [NSString stringWithFormat:@"%@ / %@", currentTimeStr, totalTimeStr];
     
     // 显示、隐藏预览窗
-    self.videoSlider.popUpView.hidden = !preview;
+    self.controlView.slider.popUpView.hidden = !preview;
     // 更新slider的值
-    self.videoSlider.value            = draggedValue;
-    // 更新bottomProgressView的值
-    self.bottomProgressView.progress  = draggedValue;
+    self.controlView.slider.value            = draggedValue;
     // 更新当前时间
-    self.currentTimeLabel.text        = currentTimeStr;
-    // 正在拖动控制播放进度
-    self.dragged = YES;
+    [self.controlView setCurrentTime:currentTimeStr totalTime:totalTimeStr sliderValue:draggedValue];
+//    self.currentTimeLabel.text        = currentTimeStr;
+//    // 正在拖动控制播放进度
+//    self.dragged = YES;
     
-    if (forawrd) {
-        self.fastImageView.image = ZFPlayerImage(@"ZFPlayer_fast_forward");
+    if (playerPanStyle == PlayerPanStyleForward) {
+        self.fastImageView.image = SHPlayerImage(@"ZFPlayer_fast_forward");
     } else {
-        self.fastImageView.image = ZFPlayerImage(@"ZFPlayer_fast_backward");
+        self.fastImageView.image = SHPlayerImage(@"ZFPlayer_fast_backward");
     }
     self.fastView.hidden           = preview;
     self.fastTimeLabel.text        = timeStr;

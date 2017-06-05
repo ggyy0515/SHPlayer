@@ -8,6 +8,9 @@
 
 #import <UIKit/UIKit.h>
 
+
+@class ASValueTrackingSlider;
+
 @protocol SHPlayControlViewDelegate <NSObject>
 
 @required
@@ -28,6 +31,10 @@
 @interface SHPlayerControlView : UIView
 
 @property (nonatomic, weak) id <SHPlayControlViewDelegate> delegate;
+/**
+ 滑块
+ */
+@property (nonatomic, strong) ASValueTrackingSlider *slider;
 
 - (void)setCurrentTime:(NSString *)currentTime totalTime:(NSString *)totalTime sliderValue:(CGFloat)sliderValue;
 
